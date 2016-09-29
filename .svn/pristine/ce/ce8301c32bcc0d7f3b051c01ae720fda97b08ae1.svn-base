@@ -1,0 +1,21 @@
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">联系我们</ion-nav-title>
+    <ion-content style="background-image: url('img/about_us_bkd.png');text-align: center;font-family: 黑体;">
+        <!--<div style="font-size: 17px;margin: 14px 0px 10px 0px;">常州报业婚嫁宝网络科技有限公司</div>-->
+        <div><img src="img/about_us_icon.png" style="width:70px;margin-top: 20px;"/></div>
+        <div style="font-size: 16px;margin: 10px 0 10px 0;">V{{appVersion}}</div>
+        <div style="font-size: 20px;margin: 10px 0 10px 0;">婚嫁宝</div>
+        <div style="font-size: 16px;margin: 0px 0 20px 0;">让结婚，更简单</div>
+        <div style="word-break: break-all;word-wrap: break-word;white-space: pre-wrap;margin: 0 28px;">婚嫁宝，是由天仁文化传媒、常州报业、扬州报业、绍兴广电共同打造的国内首家互联网结婚服务档期预订平台。</div>
+        <div>婚宴档期实时查询，简单快捷；</div>
+        <div>婚庆服务三方担保，安全可靠；</div>
+        <div>2 4 小时婚礼咨询，专业贴心；</div>
+        <div>结婚幸福基金，迎娶你的第一桶金；</div>
+        <div><img src="img/about_us_qr.png" style="margin: 25px 0 5px 0;width: 100px;"/></div>
+        <div style="font-size: 16px;">婚嫁宝订阅号</div>
+        <div style="font-size: 16px;margin-top: 5px;">微信号：CZBY-HBH</div>
+    </ion-content>
+</ion-view>

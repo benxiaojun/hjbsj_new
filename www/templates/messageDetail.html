@@ -1,0 +1,23 @@
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">消息详情</ion-nav-title>
+    <ion-content overflow-scroll="false">
+        <div class="row">
+            <button class="button button-small" style="background: #ff7666;margin: 15px;width:80px;height:35px;border-radius: 8px;border-color: white;">
+                <span class="font-heiti-ud" style="font-size: 16px;color: white">{{message_type}}</span>
+            </button>
+            <div style="margin-top: 15px;font-family: 黑体;padding-right: 10px;">
+                <span style="font-size: 18px;">{{title}}</span><br>
+                <span style="font-size: 14px;color: #808080;">{{sendtime}}</span>
+            </div>
+        </div>
+        <!--<div class="list">-->
+            <!--<div class="row message-list-ud">-->
+                <div class="message-list-ud" id="content"></div>
+            <!--</div>-->
+        <!--</div>-->
+
+    </ion-content>
+</ion-view>

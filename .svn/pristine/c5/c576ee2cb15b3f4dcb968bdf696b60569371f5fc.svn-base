@@ -1,0 +1,60 @@
+<ion-view hide-back-button="true" cache-view="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">{{sj_name}}</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="addOrder"><img ng-src="img/add.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false">
+        <div class="container">
+            <section class="main">
+                <div class="custom-calendar-wrap">
+                    <div id="custom-inner" class="custom-inner">
+                        <div class="custom-header clearfix">
+                            <nav>
+                                <span id="custom-prev" class="custom-prev"></span>
+                                <span id="custom-next" class="custom-next"></span>
+                            </nav>
+                            <nav>
+                                <span id="year-prev" class="custom-prev" style="top: 37px;left:5px;"></span>
+                                <span id="year-next" class="custom-next" style="top: 37px;right:5px;"></span>
+                            </nav>
+                            <h2 id="custom-month" class="custom-month"></h2>
+                            <h3 id="custom-year" class="custom-year"></h3>
+                        </div>
+                        <div id="calendar" class="fc-calendar-container"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="row" style="margin: -60px 10px 0px 10px;font-family: 黑体;">
+            <div class="col col-33"><button class="button-clear" style="background: white;width: 15px;height: 15px;border: 1px solid #ECE4E3;" disabled="disabled"></button> 档期充足</div>
+            <div class="col col-33"><button class="button-clear" style="background: #ef473a;width: 15px;height: 15px;" disabled="disabled"></button> 线下客户</div>
+            <div class="col col-33"><button class="button-clear" style="background: #39cbf5;width: 15px;height: 15px;" disabled="disabled"></button> 线上客户</div>
+        </div>
+
+        <div class="row row-center" style="margin-top: 10px">
+            <div class="col text-center">
+                <HR align=center width="98%" color=#D8D8D8 SIZE=1>
+            </div>
+        </div>
+        <div class="row row-center" style="margin-top: 10px">
+            <div id="selected_date" class="shedule-show-date-ud" style="font-size:24px;margin:0px 5px;"></div>
+            <div id="lunar_date" style="color: #999999;font-family: 黑体;font-size:13px;margin: 0px 5px;"></div>
+            <div>
+                <button class="button button-small shedule-button-view-ud" style="width:200%;height:40px;" ng-click="show_yuding_tab();">
+                    <span style="color: white;font-family: 黑体;font-size: 16px;">查  看</span>
+                </button>
+            </div>
+        </div>
+            <!--<div class="row shedule-room-ud">-->
+                <!--<div class="col col-67">午宴（<a href="" class="color-underline-ud" style="font-size: 16px;" id="lunch" ng-click="jump_to_tab(1)">{{zhuting_status_format}}</a>）<br>-->
+                    <!--晚宴（<a href="" class="color-underline-ud" style="font-size: 16px;" id="dinner" ng-click="jump_to_tab(2)">{{futing_status_format}}</a>）-->
+                <!--</div>-->
+                <!--<div class="col col-33 col-center">-->
+                    <!--<button class="button button-small shedule-button-view-ud" ng-click="show_yuding_tab();"><span style="color: white;font-family: 黑体;font-size: 16px;">查  看</span></button>-->
+                <!--</div>-->
+            <!--</div>-->
+    </ion-content>
+</ion-view>

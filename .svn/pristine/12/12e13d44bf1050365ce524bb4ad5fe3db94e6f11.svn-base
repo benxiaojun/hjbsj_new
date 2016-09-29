@@ -1,0 +1,229 @@
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.filters','ionic-datepicker','ionic-timepicker','ngCordova'])
+
+.run(function($ionicPlatform, $ionicPopup, $rootScope, $location,$cordovaToast,$cordovaKeyboard,$ionicHistory,LoginService) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
+
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleLightContent();
+    }
+
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+          $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+        }
+    }
+    document.addEventListener("offline", onOffline, false);
+    function onOffline() {
+      $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+    }
+  });
+
+      //主页面显示退出提示框
+      $ionicPlatform.registerBackButtonAction(function (e) {
+
+        //判断处于哪个页面时双击退出
+        if ($location.path() == '/allAppointment'||$location.path() == '/login') {
+          if ($rootScope.backButtonPressedOnceToExit) {
+            LoginService.logout();
+            ionic.Platform.exitApp();
+          } else {
+            $rootScope.backButtonPressedOnceToExit = true;
+            $cordovaToast.showShortBottom('再按一次退出应用');
+            setTimeout(function () {
+              $rootScope.backButtonPressedOnceToExit = false;
+            }, 2000);
+          }
+        }
+        else if ($ionicHistory.backView()) {
+          if($cordovaKeyboard.isVisible()){
+            $cordovaKeyboard.close();
+          }else{
+            $ionicHistory.goBack();
+          }
+
+        } else {
+          $rootScope.backButtonPressedOnceToExit = true;
+          $cordovaToast.showShortBottom('再按一次退出应用');
+          setTimeout(function () {
+            $rootScope.backButtonPressedOnceToExit = false;
+          }, 2000);
+        }
+        e.preventDefault();
+        return false;
+      }, 101);
+})
+
+.config(function($stateProvider, $urlRouterProvider,$httpProvider,$provide,$ionicConfigProvider) {
+      $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
+
+  // Use x-www-form-urlencoded Content-Type 解决跨域访问
+  $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+      /**
+       * The workhorse; converts an object to x-www-form-urlencoded serialization.解决无法传参
+       * @param {Object} obj
+       * @return {String}
+       */
+      var param = function(obj) {
+        var query = '', name, value, fullSubName, subName, subValue, innerObj, i;
+
+        for(name in obj) {
+          value = obj[name];
+
+          if(value instanceof Array) {
+            for(i=0; i<value.length; ++i) {
+              subValue = value[i];
+              fullSubName = name + '[' + i + ']';
+              innerObj = {};
+              innerObj[fullSubName] = subValue;
+              query += param(innerObj) + '&';
+            }
+          }
+          else if(value instanceof Object) {
+            for(subName in value) {
+              subValue = value[subName];
+              fullSubName = name + '[' + subName + ']';
+              innerObj = {};
+              innerObj[fullSubName] = subValue;
+              query += param(innerObj) + '&';
+            }
+          }
+          else if(value !== undefined && value !== null)
+            query += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '&';
+        }
+
+        return query.length ? query.substr(0, query.length - 1) : query;
+      };
+
+      // Override $http service's default transformRequest
+      $httpProvider.defaults.transformRequest = [function(data) {
+        return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+      }];
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+  // setup an abstract state for the tabs directive
+    .state('tabs', {
+    url: '/tabs',
+    //abstract: true,
+    templateUrl: 'templates/tabs.html',
+    params:{yanghuiting_count:null,yanghuiting_list:null,dangqi:null,index:null},
+    controller:'tabsCtrl'
+  })
+
+    .state('accountCenter', {
+    url:'/accountCenter/',
+    templateUrl: 'templates/accountCenter.html',
+    params:{'sup_name':null,'logo_img':null,'address':null,'tel':null,'index_img':null,'brief':null
+      ,'fuwufei':null,'jingchangfei':null,'kaipingfei':null,'tingchechang':null,'hunfang':null,'huazhaungjian':null},
+    controller:'AccountCtrl'
+    })
+    .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+    })
+    .state('allAppointment', {
+    url: '/allAppointment',
+    templateUrl: 'templates/allAppointment.html',
+    params:{yanghuiting_count:null,yanghuiting_list:null},
+    controller: 'allAppointmentCtrl'
+    })
+      .state('yuyue_expand_detail',{
+        url:'/yuyue_expand_detail',
+        templateUrl: 'yuyue_expand_detail.html',
+        params:{yanghuiting_list:null,item:null},
+        controller: 'yuyue_expand_detail_ctrl'
+      })
+      .state('kanchang_expand_detail',{
+        url:'/kanchang_expand_detail',
+        templateUrl: 'kanchang_expand_detail.html',
+        params:{yanghuiting_list:null,item:null},
+        controller: 'kanchang_expand_detail_ctrl'
+      })
+      .state('kanchang_chaidan',{
+        url:'/kanchang_chaidan/:id',
+        templateUrl:'kanchang_chaidan.html',
+        controller:'kanchang_chaidan_ctrl'
+      })
+      .state('scheduleShowPage',{
+          templateUrl:'scheduleShowPage.html',
+          params:{items:null,sj_name:null},
+          controller:'scheduleShowCtrl'
+      })
+      .state('yuyueAdd', {
+        url:'/yuyueAdd/:dangqi',
+        templateUrl: 'templates/yuyueAdd.html',
+        controller:'yuyueAddCtrl'
+      })
+      .state('show_yuding_detail', {
+        url:'/show_yuding_detail/:id',
+        templateUrl: 'show_yuding_detail.html',
+        controller:'yudingDetailCtrl'
+      })
+    .state('setting', {
+    templateUrl: 'templates/settings.html',
+    controller:'settingCtrl'
+    })
+    .state('hotelDetail', {
+        url:'/hotelDetail',
+        templateUrl: 'hotelDetail.html',
+        params:{'title':null,'address':null,'index_img':null,'brief':null
+          ,'fuwufei':null,'jingchangfei':null,'kaipingfei':null,'tingchechang':null,'hunfang':null,'huazhaungjian':null},
+        controller:'hotelDetailCtrl'
+    })
+    .state('hythAdd',{
+      templateUrl:'hythAdd.html',
+      controller:'hythAddCtrl'
+    })
+    .state('hythEdit',{
+      url:'/hythEdit/:id',
+      templateUrl:'hythEdit.html',
+      controller:'hythEditCtrl'
+    })
+    .state('yhtPage',{
+      templateUrl:'yhtPage.html',
+      params:{yanhuiting_count:null,items:null},
+      controller:'yhtCtrl'
+    })
+    .state('hycbPage',{
+      templateUrl:'hycbPage.html',
+      params:{hunyan_count:null,items:null},
+      controller:'hycbCtrl'
+    })
+    .state('hythPage',{
+    templateUrl:'templates/hythPage.html',
+    params:{items:null},
+    controller:'hythCtrl'
+    })
+    .state('allOrderPage',{
+      templateUrl:'allOrderPage.html',
+      params:{yanghuiting_count:null,yanghuiting_list:null},
+      controller:'allOrderCtrl'
+    })
+    .state('schedulePage',{
+      templateUrl:'schedulePage.html',
+      controller:'scheduleCtrl'
+    });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/login');
+
+});

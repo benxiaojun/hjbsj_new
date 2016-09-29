@@ -1,0 +1,633 @@
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+
+var db = null;
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.filters','ionic-datepicker','ionic-timepicker','ngCordova', 'ngIOS9UIWebViewPatch'])
+
+.run(function($ionicPlatform, $ionicPopup, $rootScope, $location,$cordovaToast,$cordovaKeyboard,$ionicHistory,LoginService,
+              $cordovaAppVersion,$cordovaFileTransfer,$cordovaFile,$cordovaFileOpener2,$ionicLoading,$timeout,$cordovaSQLite,Push,$state) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+      cordova.plugins.Keyboard.disableScroll(false);
+
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleLightContent();
+    }
+    //本地存储商家消息数据库
+    //$cordovaSQLite.deleteDB("my.db");
+    db = $cordovaSQLite.openDB("my.db");
+    //$cordovaSQLite.execute(db,"DROP TABLE IF EXISTS message");
+    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS message (" +
+        "id integer primary key," +
+        "messageid integer," +
+        "account text," +
+        "msgtype integer," +
+        "title text," +
+        "content text," +
+        "isread integer," +
+        "sendtime text," +
+        "dangqi text," +
+        "yanhuiting text," +
+        "yuyuecontent text," +
+        "yuyueyonghu text," +
+        "mobile text," +
+        "dingjin integer)");
+
+    //极光推送初始化
+    Push.init(notificationCallback);
+    //window.plugins.jPushPlugin.init();
+    ////调试模式
+    //window.plugins.jPushPlugin.setDebugMode(true);
+    //window.plugins.jPushPlugin.getRegistrationID(function(data) {
+    //  try{
+    //    //alert("JPushPlugin:registrationID is :"+data);
+    //    window.localStorage['registrationID'] = data;
+    //  }catch(exception){
+    //    console.log(exception);
+    //  }
+    //});
+
+    //检测更新
+    if(ionic.Platform.isAndroid()){
+      checkUpdate();
+    }
+
+    // 检查更新
+    function checkUpdate() {
+      var dev_type = "ANDROID";
+      //获取版本
+      $cordovaAppVersion.getVersionNumber().then(function (version) {
+        LoginService.getAppServerVersion(dev_type,version).then(function(results){
+            $rootScope.android_upgrade = results.android_upgrade;
+            $rootScope.filename = results.filename;
+            if(results.has_upgrade == 1){//有新版本可升级
+              showUpdateConfirm();
+            }
+        })
+      });
+    }
+
+    // 显示是否更新对话框
+    function showUpdateConfirm() {
+      var confirmPopup = $ionicPopup.confirm({
+        cssClass: 'myPopup',
+        title: '版本升级',
+        template: $rootScope.android_upgrade, //从服务端获取更新的内容
+        cancelText: '取消',
+        okText: '升级'
+      });
+      confirmPopup.then(function (res) {
+        if (res) {
+          $ionicLoading.show({
+            template: "已经下载：0%"
+          });
+          var url = $rootScope.filename; //可以从服务端获取更新APP的路径
+          var targetPath = "file:///storage/sdcard0/Download/hjbsj.apk"; //APP下载存放的路径，可以使用cordova file插件进行相关配置
+          var trustHosts = true;
+          var options = {};
+          $cordovaFileTransfer.download(url, targetPath, options, trustHosts).then(function (result) {
+            // 打开下载下来的APP
+            $cordovaFileOpener2.open(targetPath, 'application/vnd.android.package-archive').then(function () {
+                  // 成功
+                }, function (err) {
+                  // 错误
+                });
+            $ionicLoading.hide();
+          }, function (err) {
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+              cssClass: 'myPopup',
+              title: '提示',
+              template: '<div style="text-align: center">下载失败</div>',
+              okText: '确认'
+            });
+          }, function (progress) {
+            //进度，这里使用文字显示下载百分比
+            $timeout(function () {
+              var downloadProgress = (progress.loaded / progress.total) * 100;
+              $ionicLoading.show({
+                template: "已经下载：" + Math.floor(downloadProgress) + "%"
+              });
+              if (downloadProgress > 99) {
+                $ionicLoading.hide();
+              }
+            })
+          });
+        } else {
+          // 取消更新
+        }
+      });
+    }
+
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+          $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+        }
+    }
+    document.addEventListener("offline", onOffline, false);
+    function onOffline() {
+      $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+    }
+  });
+
+      //app在前台运行中
+      document.addEventListener("jpush.receiveNotification", function(event) {
+        $rootScope.doRefresh_allMsg();
+        $rootScope.refreshMsgIcon();
+      });
+      //app在后台
+      document.addEventListener("jpush.openNotification", function(event) {
+        //alert(window.plugins.jPushPlugin.openNotification.alert);
+        if(window.localStorage['userName'] == undefined || window.localStorage['userPassword'] == undefined){
+          $state.go('login');
+        }else{
+          $state.go('message',{reload:true});
+          $rootScope.doRefresh_allMsg();
+        }
+      });
+
+      var notificationCallback = function(data) {
+        console.log('received data :' + data);
+        var notification = angular.fromJson(data);
+        //app 是否处于正在运行状态
+        var isActive = notification.notification;
+        //if(window.localStorage['userName'] == undefined || window.localStorage['userPassword'] == undefined){
+        //    $state.go('login');
+        //}else{
+        //    $state.go('message');
+        //}
+
+        //ios
+        if (ionic.Platform.isIOS()) {
+          window.alert(notification);
+        } else {
+          //非 ios(android)
+        }
+      };
+
+      //主页面显示退出提示框
+      $ionicPlatform.registerBackButtonAction(function (e) {
+
+        //判断处于哪个页面时双击退出
+        if ($location.path() == '/allAppointment'||$location.path() == '/login'||$location.path() == '/newAddedCustomer'||$location.path() == '/hcMainOrder') {
+          if ($rootScope.backButtonPressedOnceToExit) {
+            LoginService.logout();
+            ionic.Platform.exitApp();
+          } else {
+            $rootScope.backButtonPressedOnceToExit = true;
+            $cordovaToast.showShortBottom('再按一次退出应用');
+            setTimeout(function () {
+              $rootScope.backButtonPressedOnceToExit = false;
+            }, 2000);
+          }
+        }
+        else if ($ionicHistory.backView()) {
+          if($cordovaKeyboard.isVisible()){
+            $cordovaKeyboard.close();
+          }else{
+            $ionicHistory.goBack();
+          }
+
+        } else {
+          $rootScope.backButtonPressedOnceToExit = true;
+          $cordovaToast.showShortBottom('再按一次退出应用');
+          setTimeout(function () {
+            $rootScope.backButtonPressedOnceToExit = false;
+          }, 2000);
+        }
+        e.preventDefault();
+        return false;
+      }, 101);
+})
+
+.config(function($stateProvider, $urlRouterProvider,$httpProvider,$provide,$ionicConfigProvider) {
+      $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
+      //禁止侧滑后退事件
+      $ionicConfigProvider.views.swipeBackEnabled(false);
+      $ionicConfigProvider.navBar.alignTitle('center');
+
+  // Use x-www-form-urlencoded Content-Type 解决跨域访问
+  $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+      /**
+       * The workhorse; converts an object to x-www-form-urlencoded serialization.解决无法传参
+       * @param {Object} obj
+       * @return {String}
+       */
+      var param = function(obj) {
+        var query = '', name, value, fullSubName, subName, subValue, innerObj, i;
+
+        for(name in obj) {
+          value = obj[name];
+
+          if(value instanceof Array) {
+            for(i=0; i<value.length; ++i) {
+              subValue = value[i];
+              fullSubName = name + '[' + i + ']';
+              innerObj = {};
+              innerObj[fullSubName] = subValue;
+              query += param(innerObj) + '&';
+            }
+          }
+          else if(value instanceof Object) {
+            for(subName in value) {
+              subValue = value[subName];
+              fullSubName = name + '[' + subName + ']';
+              innerObj = {};
+              innerObj[fullSubName] = subValue;
+              query += param(innerObj) + '&';
+            }
+          }
+          else if(value !== undefined && value !== null)
+            query += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '&';
+        }
+
+        return query.length ? query.substr(0, query.length - 1) : query;
+      };
+
+      // Override $http service's default transformRequest
+      $httpProvider.defaults.transformRequest = [function(data) {
+        return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+      }];
+
+
+      // Intercept http calls.
+      $provide.factory('MyHttpInterceptor', function ($q,$cordovaToast,$injector,$cordovaNetwork,$rootScope) {
+        return {
+          // On request success
+          request: function (config) {
+            // console.log(config); // Contains the data about the request before it is sent.
+            document.addEventListener("deviceready", function () {
+              var isOffline = $cordovaNetwork.isOffline();
+              if(isOffline){
+                if($rootScope.isShowIn5Sec){//防止网络状态不好时多次提示
+                  setTimeout(function () {
+                    $rootScope.isShowIn5Sec = false;
+                  },5000);
+                }else{
+                  $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+                  $rootScope.isShowIn5Sec = true;
+                }
+              }
+            }, false);
+            // Return the config or wrap it in a promise if blank.
+            return config || $q.when(config);
+          },
+          // On request failure
+          requestError: function (rejection) {
+            // console.log(rejection); // Contains the data about the error on the request.
+
+            // Return the promise rejection.
+            return $q.reject(rejection);
+          },
+
+          // On response success
+          response: function (response) {
+            // console.log(response); // Contains the data from the response.
+            $injector.invoke(function($http, LoginService) {
+              if (response.data.biz_login_status == 0 && response.data.act != "biz_login") {
+                $cordovaToast.showShortTop("帐号信息已变更，请重新登录！");
+                localStorage.removeItem("userPassword");
+                LoginService.logout();
+              }
+            });
+            // Return the response or promise.
+            return response || $q.when(response);
+          },
+
+          // On response failture
+          responseError: function (rejection) {
+            // console.log(rejection); // Contains the data about the error.
+            //if(rejection.status == 0){
+            //  $cordovaToast.showShortCenter("网络不给力，请网络良好时再试");
+            //}
+            // Return the promise rejection.
+            return $q.reject(rejection);
+          }
+        };
+      });
+      // Add the interceptor to the $httpProvider.
+      $httpProvider.interceptors.push('MyHttpInterceptor');
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+  // setup an abstract state for the tabs directive
+    .state('tabs', {
+    url: '/tabs',
+    //abstract: true,
+    templateUrl: 'templates/tabs.html',
+    params:{yanghuiting_count:null,yanghuiting_list:null,dangqi:null,index:null},
+    controller:'tabsCtrl'
+  })
+
+    .state('accountCenter', {
+    url:'/accountCenter/',
+    templateUrl: 'templates/accountCenter.html',
+    params:{'sup_name':null,'logo_img':null,'address':null,'tel':null,'index_img':null,'brief':null
+      ,'fuwufei':null,'jingchangfei':null,'kaipingfei':null,'tingchechang':null,'hunfang':null,'huazhaungjian':null},
+    controller:'AccountCtrl'
+    })
+    .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+    })
+    .state('allAppointment', {
+    url: '/allAppointment',
+    templateUrl: 'templates/allAppointment.html',
+    params:{yanghuiting_count:null,yanghuiting_list:null},
+    controller: 'allAppointmentCtrl'
+    })
+      .state('yuyue_expand_detail',{
+        url:'/yuyue_expand_detail',
+        templateUrl: 'templates/yuyue_expand_detail.html',
+        params:{yanghuiting_list:null,item:null},
+        controller: 'yuyue_expand_detail_ctrl'
+      })
+      .state('kanchang_expand_detail',{
+        url:'/kanchang_expand_detail',
+        templateUrl: 'templates/kanchang_expand_detail.html',
+        params:{yanghuiting_list:null,item:null},
+        controller: 'kanchang_expand_detail_ctrl'
+      })
+      .state('kanchang_chaidan',{
+        url:'/kanchang_chaidan/:id',
+        templateUrl:'templates/kanchang_chaidan.html',
+        controller:'kanchang_chaidan_ctrl'
+      })
+      .state('scheduleShowPage',{
+          url:'scheduleShowPage',
+          templateUrl:'scheduleShowPage.html',
+          params:{items:null,sj_name:null},
+          controller:'scheduleShowCtrl'
+      })
+      .state('yuyueAdd', {
+        url:'/yuyueAdd/:dangqi',
+        templateUrl: 'templates/yuyueAdd.html',
+        controller:'yuyueAddCtrl'
+      })
+      .state('show_yuding_detail', {
+        url:'/show_yuding_detail/:id',
+        templateUrl: 'show_yuding_detail.html',
+        controller:'yudingDetailCtrl'
+      })
+    .state('setting', {
+    templateUrl: 'templates/settings.html',
+    controller:'settingCtrl'
+    })
+    .state('hotelDetail', {
+        url:'/hotelDetail',
+        templateUrl: 'hotelDetail.html',
+        params:{'title':null,'address':null,'index_img':null,'brief':null
+          ,'fuwufei':null,'jingchangfei':null,'kaipingfei':null,'tingchechang':null,'hunfang':null,'huazhaungjian':null},
+        controller:'hotelDetailCtrl'
+    })
+    .state('hythAdd',{
+      templateUrl:'hythAdd.html',
+      controller:'hythAddCtrl'
+    })
+    .state('hythEdit',{
+      url:'/hythEdit/:id',
+      templateUrl:'hythEdit.html',
+      controller:'hythEditCtrl'
+    })
+    .state('yhtPage',{
+      templateUrl:'yhtPage.html',
+      params:{yanhuiting_count:null,items:null},
+      controller:'yhtCtrl'
+    })
+    .state('hycbPage',{
+      templateUrl:'hycbPage.html',
+      params:{hunyan_count:null,items:null},
+      controller:'hycbCtrl'
+    })
+    .state('hythPage',{
+    templateUrl:'templates/hythPage.html',
+    params:{items:null},
+    controller:'hythCtrl'
+    })
+    .state('all_yuyue_order',{
+      templateUrl:'templates/allYuyueOrder.html',
+      controller:'allYuyueOrderCtrl'
+    })
+    .state('jdCanceledOrders',{
+      url:'/jdCanceledOrders',
+      templateUrl:'jdCanceledOrders.html',
+      controller:'jdCanceledOrdersCtrl'
+    })
+      .state('show_canceled_yuyue_detail', {
+        url:'/show_canceled_yuyue_detail/:id',
+        templateUrl: 'templates/show_canceled_yuyue_detail.html',
+        controller:'canceledYuyueDetailCtrl'
+      })
+    .state('all_yuding_order',{
+    templateUrl:'templates/allYudingOrder-tabs.html',
+    //params:{yanghuiting_count:null,yanghuiting_list:null},
+    controller:'allYudingOrderCtrl'
+    })
+    .state('schedulePage',{
+      templateUrl:'schedulePage.html',
+      controller:'scheduleCtrl'
+    })
+    .state('changePassword',{
+      url:'changePassword',
+      templateUrl:'changePassword.html',
+      controller:'changePasswordCtrl'
+    })
+      .state('message',{
+        url:'/message-tabs',
+        templateUrl:'templates/message-tabs.html',
+        controller:'messageCtrl'
+      })
+      .state('messageDetail',{
+        url:'/messageDetail',
+        params:{id:null,index:null},
+        templateUrl:'templates/messageDetail.html',
+        controller:'messageDetailCtrl'
+      })
+      .state('newAddedCustomer',{
+        url:'newAddedCustomer',
+        templateUrl:'templates/sdjg/newAddedCustomer.html',
+        controller:'newAddedCustomerCtrl'
+      })
+      .state('addOrder',{
+        url:'/addOrder',
+        templateUrl:'addOrder.html',
+        controller:'addOrderCtrl'
+      })
+      .state('offlineOrderInfo',{
+        url:'offlineOrderInfo',
+        params:{orderinfo:null,paramsJson:null},
+        templateUrl:'offlineOrderInfo.html',
+        controller:'offlineOrderInfoCtrl'
+      })
+      .state('orderDetail',{
+        url:'orderDetail',
+        params:{id:null,type:null},
+        templateUrl:'templates/sdjg/orderDetail.html',
+        controller:'orderDetailCtrl'
+      })
+      .state('scheduleView',{
+        url:'scheduleView',
+        templateUrl:'templates/sdjg/scheduleView.html',
+        controller:'scheduleViewCtrl'
+      })
+      .state('orderTabs',{
+        url:'orderTabs',
+        params:{dangqi:null,index:null},
+        templateUrl:'templates/sdjg/orderTabs.html',
+        controller:'orderTabsCtrl'
+      })
+      .state('jgAllOrders',{
+        url:'/jgAllOrders',
+        templateUrl:'templates/sdjg/jgAllOrders.html',
+        controller:'jgAllOrdersCtrl'
+      })
+      .state('jgCanceledOrders',{
+        url:'/jgCanceledOrders',
+        templateUrl:'jgCanceledOrders.html',
+        controller:'jgCanceledOrdersCtrl'
+      })
+      .state('personalCenter',{
+        url:'personalCenter',
+        templateUrl:'templates/sdjg/personalCenter.html',
+        controller:'personalCenterCtrl'
+      })
+      .state('personDetail',{
+        url:'personDetail',
+        templateUrl:'personDetail.html',
+        controller:'personDetailCtrl'
+      })
+      .state('sdjgMessage',{
+        url:'sdjgMessage',
+        templateUrl:'templates/sdjg/sdjgMessage-tabs.html',
+        controller:'sdjgMessageTabCtrl'
+      })
+      .state('completedOrders',{
+        url:'completedOrders',
+        templateUrl:'templates/sdjg/completedOrder-tabs.html',
+        controller:'completedOrderTabCtrl'
+      })
+      .state('completedOrderDetail',{
+        url:'completedOrderDetail',
+        params:{id:null,type:null},
+        templateUrl:'templates/sdjg/completedOrderDetail.html',
+        controller:'completedOrderDetailCtrl'
+      })
+      .state('activityPage',{
+        url:'activityPage',
+        templateUrl:'templates/sdjg/activityPage.html',
+        controller:'activityPageCtrl'
+      })
+      .state('activityAdd',{
+        url:'activityAdd',
+        templateUrl:'activityAdd.html',
+        controller:'activityAddCtrl'
+      })
+      .state('activityEdit',{
+        url:'/activityEdit/:id',
+        templateUrl:'activityEdit.html',
+        controller:'activityEditCtrl'
+      })
+      .state('hcMainOrder',{
+        url:'/hcMainOrder',
+        templateUrl:'templates/hc/hcMainOrder.html',
+        controller:'hcMainOrderCtrl'
+      })
+      .state('hcOrderDetail',{
+        url:'/hcOrderDetail',
+        params:{id:null,type:null},
+        templateUrl:'templates/hc/hcOrderDetail.html',
+        controller:'hcOrderDetailCtrl'
+      })
+      .state('hcAccountCenter',{
+        url:'/hcAccountCenter',
+        templateUrl:'templates/hc/hcAccountCenter.html',
+        controller:'hcAccountCenterCtrl'
+      })
+      .state('hcAccountCenterDetail',{
+        url:'hcAccountCenterDetail',
+        templateUrl:'hcAccountCenterDetail.html',
+        controller:'hcAccountCenterDetailCtrl'
+      })
+      .state('hcCalendar',{
+        url:'/hcCalendar',
+        templateUrl:'templates/hc/hcCalendar.html',
+        controller:'hcCalendarCtrl'
+      })
+      .state('hcAddOrder',{
+        url:'/hcAddOrder',
+        templateUrl:'hcAddOrder.html',
+        controller:'hcAddOrderCtrl'
+      })
+      .state('hc_offlineOrderInfo',{
+        url:'/hc_offlineOrderInfo',
+        params:{orderinfo:null,paramsJson:null},
+        templateUrl:'hc_offlineOrderInfo.html',
+        controller:'hc_offlineOrderInfoCtrl'
+      })
+      .state('hcOrderTabs',{
+        url:'/hcOrderTabs',
+        params:{dangqi:null,index:null},
+        templateUrl:'templates/hc/hcOrderTabs.html',
+        controller:'hcOrderTabsCtrl'
+      })
+      .state('hcActivityPage',{
+        url:'/hcActivityPage',
+        templateUrl:'templates/hc/hcActivityPage.html',
+        controller:'hcActivityCtrl'
+      })
+      .state('hcActivityAdd',{
+        url:'hcActivityAdd',
+        templateUrl:'hcActivityAdd.html',
+        controller:'hcActivityAddCtrl'
+      })
+      .state('hcActivityEdit',{
+        url:'/hcActivityEdit/:id',
+        templateUrl:'hcActivityEdit.html',
+        controller:'hcActivityEditCtrl'
+      })
+      .state('hcAllOrders',{
+        url:'/hcAllOrders',
+        templateUrl:'templates/hc/hcAllOrders.html',
+        controller:'hcAllOrdersCtrl'
+      })
+      .state('hcCanceledOrders',{
+        url:'/hcCanceledOrders',
+        templateUrl:'hcCanceledOrders.html',
+        controller:'hcCanceledOrdersCtrl'
+      })
+      .state('hcCompletedOrders',{
+        url:'/hcCompletedOrders',
+        templateUrl:'templates/hc/hcCompletedOrder-tabs.html',
+        controller:'hcCompletedOrdersCtrl'
+      })
+      .state('hcCompletedOrderDetail',{
+        url:'/hcCompletedOrderDetail',
+        params:{id:null,type:null},
+        templateUrl:'templates/hc/hcCompletedOrderDetail.html',
+        controller:'hcCompletedOrderDetailCtrl'
+      })
+      .state('contactUs',{
+        url:'contactUs',
+        templateUrl:'templates/contact_us.html',
+        controller:'contactUsCtrl'
+      });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/login');
+
+});

@@ -1,0 +1,36 @@
+<ion-view style="background: #fff7fb" hide-nav-bar="true" cache-view="false">
+    <!--<ion-content class="padding login-content">-->
+    <div>
+        <div style="text-align: center"><img src="img/logo.png" style="margin: 50px 0px 30px 0px;"></div>
+        <div class="div-login-ud"><span>婚嫁宝酒店预定</span>
+            <div class="div-sub-ud">商户版</div>
+        </div>
+        <!--<div class="button-clear" ng-click="back()"><span style="color: lightcoral">< 登录</span></div>-->
+        <div class="list list-inset" style="background: #fff7fb">
+            <label class="item item-input" style="border-radius: 5px;margin-top: 3px;">
+                <span class="input-label" style="font-family: 黑体;">登录帐号</span>
+                <input type="text" style="font-size: 16px;font-family: 黑体;" placeholder="请输入登录帐号" ng-model="data.username">
+            </label>
+            <label class="item item-input" style="margin-top: 20px;border-radius: 5px;">
+                <span class="input-label" style="font-family: 黑体;">登录密码</span>
+               <input type="password" style="font-size: 16px;font-family: 黑体;" placeholder="请输入登录密码" ng-model="data.password">
+            </label>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+            <button class="button button-clear" style="background: #ff7666;width: 90%;border-radius:5px;" ng-click="login()">
+                <span style="color: white;font-size: 20px;font-family: 黑体">登&nbsp;&nbsp;录</span>
+            </button>
+            </div>
+        </div>
+        <div class="div-forget-ud"><span ng-click="forgetPwd()">忘记密码？</span></div>
+        <!--<div class="div-bottom-ud">-->
+            <!--<span><img src="img/mobile.png" style="width: 13px;height: 13px;">-->
+            <!--400-838-5018</br>www.hunjiabao.net</br>常州天仁文化传媒有限公司</span>-->
+        <!--</div>-->
+    </div>
+    <!--</ion-content>-->
+</ion-view>
+
+
+

@@ -1,0 +1,101 @@
+<ion-view hide-back-button="true" cache-view="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">商家消息</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="edit()"><span style="color: #ff7666;font-size: 15px;font-family: 黑体;margin-right: 5px;">{{action}}</span></button>
+    </ion-nav-buttons>
+    <ion-tabs class="tabs-top tabs-striped tabs-color-assertive">
+        <ion-tab title="全部" ng-controller="sdjg_allMessageCtrl" on-select="selectTab()">
+            <ion-view>
+                <ion-content ng-class="{true:'has-footer',false:''}[isEditStatus]">
+                    <ion-refresher on-refresh="doRefresh_allMsg()"
+                                   pulling-text="下拉刷新..."
+                                   refreshing-text="正在刷新..."
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <!--<div ng-show="isEmpty" style="font-family: 黑体;text-align: center;margin-top: 50%;">暂时没有相关数据</div>-->
+                    <ion-list ng-repeat="message in messages">
+                        <li class="item item-icon-right font-heiti-ud" ng-click="itemClick(message.id,message.messageid)">
+                            <label class="checkbox checkbox-assertive" ng-show="isEditStatus" ng-click="selectForDel(message.id)">
+                                <input type="checkbox" id="message_all{{message.id}}" name="checkbox0">
+                            </label>
+                            <span id="allTitle{{message.id}}" class="font-heiti-ud" style="font-size:16px;" ng-class="{1:'message-read-ud',0:'message-sub-ud1'}[message.isread]">{{message.title}}</span><br>
+                            <span id="allTime{{message.id}}" class="font-heiti-ud" style="font-size:12px;" ng-class="{1:'message-read-ud',0:'message-sub-ud2'}[message.isread]">{{message.sendtime}}</span><br>
+                            <span id="allContent{{message.id}}" class="font-heiti-ud" style="font-size:14px;" ng-class="{1:'message-read-ud',0:'message-sub-ud3'}[message.isread]">{{message.content}}</span>
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </li>
+                    </ion-list>
+                    <!--<ion-list>-->
+                    <!--<li class="item item-icon-right font-heiti-ud">-->
+                    <!--<label class="checkbox checkbox-assertive" ng-show="isEditStatus" >-->
+                    <!--<input type="checkbox" id="message_all{{message.id}}" name="checkbox0">-->
+                    <!--</label>-->
+                    <!--<span>sdfsdfsdfds</span>-->
+                    <!--<i class="icon ion-ios-arrow-right"></i>-->
+                    <!--</li>-->
+                    <!--</ion-list>-->
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="预定" ng-controller="sdjg_yuyueMessageCtrl" on-select="selectTab()">
+            <ion-view>
+                <ion-content ng-class="{true:'has-footer',false:''}[isEditStatus]">
+                    <ion-refresher on-refresh="doRefresh_allMsg()"
+                                   pulling-text="下拉刷新..."
+                                   refreshing-text="正在刷新..."
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <!--<div ng-show="isEmpty" style="font-family: 黑体;text-align: center;margin-top: 50%;">暂时没有相关数据</div>-->
+                    <ion-list ng-repeat="message1 in messages_yuyue">
+                        <li class="item item-icon-right font-heiti-ud" ng-click="itemClick(message1.id,message1.messageid)">
+                            <label class="checkbox checkbox-assertive" ng-show="isEditStatus" ng-click="selectForDel(message1.id)">
+                                <input type="checkbox" id="message_yuyue{{message1.id}}" name="checkbox1">
+                            </label>
+                            <span id="yyTitle{{message1.id}}" class="font-heiti-ud" style="font-size:16px;" ng-class="{1:'message-read-ud',0:'message-sub-ud1'}[message1.isread]">{{message1.title}}</span><br>
+                            <span id="yyTime{{message1.id}}" class="font-heiti-ud" style="font-size:12px;" ng-class="{1:'message-read-ud',0:'message-sub-ud2'}[message1.isread]">{{message1.sendtime}}</span><br>
+                            <span id="yyContent{{message1.id}}" class="font-heiti-ud" style="font-size:14px;" ng-class="{1:'message-read-ud',0:'message-sub-ud3'}[message1.isread]">{{message1.content}}</span>
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </li>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="完成" ng-controller="sdjg_yudingMessageCtrl" on-select="selectTab()">
+            <ion-view>
+                <ion-content ng-class="{true:'has-footer',false:''}[isEditStatus]">
+                    <ion-refresher on-refresh="doRefresh_allMsg()"
+                                   pulling-text="下拉刷新..."
+                                   refreshing-text="正在刷新..."
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <!--<div ng-show="isEmpty" style="font-family: 黑体;text-align: center;margin-top: 50%;">暂时没有相关数据</div>-->
+                    <ion-list ng-repeat="message2 in messages_yuding">
+                        <li class="item item-icon-right font-heiti-ud" ng-click="itemClick(message2.id,message2.messageid)">
+                            <label class="checkbox checkbox-assertive" ng-show="isEditStatus" ng-click="selectForDel(message2.id)">
+                                <input type="checkbox" id="message_yuding{{message2.id}}" name="checkbox2">
+                            </label>
+                            <span id="ydTitle{{message2.id}}" class="font-heiti-ud" style="font-size:16px;" ng-class="{1:'message-read-ud',0:'message-sub-ud1'}[message2.isread]">{{message2.title}}</span><br>
+                            <span id="ydTime{{message2.id}}" class="font-heiti-ud" style="font-size:12px;" ng-class="{1:'message-read-ud',0:'message-sub-ud2'}[message2.isread]">{{message2.sendtime}}</span><br>
+                            <span id="ydContent{{message2.id}}" class="font-heiti-ud" style="font-size:14px;" ng-class="{1:'message-read-ud',0:'message-sub-ud3'}[message2.isread]">{{message2.content}}</span>
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </li>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+    <div class="bar bar-footer" ng-show="isEditStatus">
+        <label class="checkbox checkbox-assertive" style="bottom:3px;" ng-click="selectAll()">
+            <input type="checkbox" id="allSelButton">
+        </label>
+        <label style="margin-top:8px;font-family: 黑体;font-size:16px;">全选</label>
+        <label style="margin-top:8px;font-family: 黑体;font-size:16px;position: absolute;right: 140px;">
+            <span style="color:#c1c1c1">已选</span>&nbsp;<span style="color:#ff7566">{{selectedNum}}</span>&nbsp;<span style="color:#c1c1c1">条</span>
+        </label>
+        <label class="button button-small delete-button-ud" ng-class="{true:'delete-button-red-ud',false:'delete-button-grey-ud'}[hasChecked]" ng-click="deleteMsg()">
+            <span class="font-heiti-ud" style="font-size: 15px;color: white">删 除</span>
+        </label>
+    </div>
+</ion-view>

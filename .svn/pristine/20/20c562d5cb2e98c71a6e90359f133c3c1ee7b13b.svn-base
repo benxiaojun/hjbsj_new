@@ -1,0 +1,121 @@
+<ion-view hide-nav-bar="false" cache-view="false" hide-back-button="true" style="background:  #eeeeee">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">活动优惠</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="hcActivityAdd"><img ng-src="img/add.png" style="height: 20px;margin: 6px;"/></button>
+        <!--<button class="button button-clear icon ion-android-add" ui-sref="hythAdd"></button>-->
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh_actvt_hc()"
+                       pulling-text="下拉刷新..."
+                       refreshing-text="正在刷新..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
+        <ul class="list font-heiti-ud" style="margin: 10px 0;" ng-repeat="item in items">
+            <li class="item" style="padding: 8px 0 8px 0;">
+                <div class="row" ng-click="slide_acty($index)">
+                    <div class="col td-title-ud">{{item.name}}</div>
+                    <div class="col icon ion-chevron-up text-color-ud" style="display: none;text-align: right;" id="up_arrow{{$index}}"></div>
+                    <div class="col icon ion-chevron-down text-color-ud" style="text-align: right;" id="down_arrow{{$index}}"></div>
+                </div>
+                <div class="row" ng-click="slide_acty($index)">
+                    <div class="col text-color-ud">活动日期：{{item.start_time|date:"yyyy.MM.dd"}}-{{item.end_time|date:"yyyy.MM.dd"}}</div>
+                </div>
+                <div style="display: none;" id="item_detail{{$index}}">
+                    <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                    <div class="row">
+                        <div class="col text-color-ud"><p style="word-break: break-all;word-wrap: break-word;white-space: pre-wrap">{{item.content}}</p></div>
+                    </div>
+                    <br>
+                    <div style="text-align: right;margin: 0 10px 10px 0;">
+                        <button class="button button-small" style="border: 1px solid #ff7566;border-radius: 5px;width: 65px;height: 25px;" ui-sref="hcActivityEdit({id:item.id})">
+                            <span style="color: #ff7566;font-family: 黑体">编辑</span>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>
+<script id="hcActivityAdd.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">新增活动</ion-nav-title>
+        <ion-content>
+            <div class="list font-heiti-ud">
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动标题</div>
+                    <div class="col col-75"><input type="text" id="title" placeholder="请输入活动标题" style="border:1px solid #ECE4E3;border-radius:3px;width: 100%; "></div>
+                </div>
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动周期</div>
+                    <div class="col col-center col-33">
+                        <ionic-datepicker input-obj="datepickerObject" style="float: left;">
+                            <input type="text" id="start_date" placeholder="开始时间" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;text-align: center;"/>
+                        </ionic-datepicker>
+                    </div>
+                    <div class="col col-center">至</div>
+                    <div class="col col-center col-33">
+                        <ionic-datepicker input-obj="datepickerObject2" style="float: left;">
+                            <input type="text" id="end_date" placeholder="结束时间" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;text-align: center;"/>
+                        </ionic-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动内容</div>
+                    <div class="col"><textarea id="content" placeholder="请输入活动内容" rows="5" cols="30" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;"></textarea></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="button button-clear" style="background: #ff7666;width: 90%;border-color: #ECE4E3;" ng-click="saveActivity()">
+                        <span style="color: white;font-size: medium;font-family: 黑体">保存</span></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="hcActivityEdit.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">修改活动</ion-nav-title>
+        <ion-content>
+            <div class="list font-heiti-ud">
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动标题</div>
+                    <div class="col col-75"><input type="text" id="title_edit" value="{{item.name}}" style="border:1px solid #ECE4E3;border-radius:3px;width: 100%;"></div>
+                </div>
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动周期</div>
+                    <div class="col col-center col-33">
+                        <ionic-datepicker input-obj="datepickerObject" style="float: left;">
+                            <input type="text" id="start_date_edit" value="{{item.start_time}}" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;text-align: center;"/>
+                        </ionic-datepicker>
+                    </div>
+                    <div class="col col-center">至</div>
+                    <div class="col col-center col-33">
+                        <ionic-datepicker input-obj="datepickerObject2" style="float: left;">
+                            <input type="text" id="end_date_edit" value="{{item.end_time}}" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;text-align: center;">
+                        </ionic-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center col-25 activity-subtitle-ud">活动内容</div>
+                    <div class="col"><textarea id="content_edit"  rows="5" cols="30" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;">{{item.content}}</textarea></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="button button-clear" style="background: #ff7666;width: 90%;border-color: #ECE4E3;" ng-click="saveActivity()">
+                        <span style="color: white;font-size: medium;font-family: 黑体">保存</span></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>

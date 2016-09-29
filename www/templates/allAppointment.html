@@ -1,0 +1,114 @@
+<ion-view hide-back-button="true" hide-nav-bar="false" cache-view="false">
+    <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="goto_schedule_calendar()"><span class="fir-page-dangqi-ud">档期日历</span></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud" ng-click="openPopover($event);">预约客户<i class="icon ion-chevron-down" style="margin-left: 4px;"></i></ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="goto_accountCenter()"><img src="img/home.png" style="height: 25px;margin: 5px 8px 0px 0px;"/></button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false">
+        <ion-refresher on-refresh="doRefresh_allAppointment()"
+                       pulling-text="下拉刷新..."
+                       refreshing-text="正在刷新..."
+                       refreshing-icon="ion-loading-a">
+        </ion-refresher>
+        <div class="list" style="padding: 2px;border: 2px;margin: 5px 5px 5px 5px ">
+            <ion-list ng-repeat="room in yanghuiting_list">
+                <ion-item style="padding: 2px;margin: -2px;">
+                    <div class="row row-center" ng-click="slide_allAppointment($index)">
+                        <div class="col col-34 room-name-ud">{{room.name|limitLength}} {{room.floor}}F</div>
+                        <div class="col col-25 col-offset-10 room-yuyue-tongji-ud" style="margin-left:6%;margin-right: -6%;color: #777777;">可预约&nbsp;{{room.zuoshu}}&nbsp;桌</div>
+                        <div class="col col-25 room-yuyue-tongji-ud" style="margin-left: 30px;color: #777777;">预约&nbsp;<span class="span-color-ud">{{room.yuyue_total|dataChange}}</span>&nbsp;人</div>
+                        <div class="col col-10 icon ion-chevron-up" ng-click="expand_yyzb('{{$index}}');" style="display: none;color: #777777;" id="up_arrow_yyzb{{$index}}"></div>
+                        <div class="col col-10 icon ion-chevron-down" ng-click="collapse_yyzb('{{$index}}');" style="color:#777777;" id="down_arrow_yyzb{{$index}}"></div>
+                    </div>
+                    <div class="list" style="display:none" id="detail_yyzb{{$index}}">
+                        <div class="row item-divider expand-title-ud">
+                            <div class="col">序号</div>
+                            <div class="col col-25 text-center">客户</div>
+                            <div class="col">桌数</div>
+                            <div class="col col-25 text-center">预约档期</div>
+                            <div class="col col-20">同档预约</div>
+                        </div>
+                        <div ng-repeat="item in room.yuyue_list  ">
+                            <div class="row item-body row-color-ud" ng-click="jump_to_yuyue_tab('{{item.dangqi}}');">
+                                <div class="col">{{item.xuhao}}</div>
+                                <div class="col col-25 text-center">{{item.nickname}}</div>
+                                <div class="col text-center">{{item.zhushu}}</div>
+                                <div class="col col-33 text-center">{{item.dangqi}}</div>
+                                <div class="col" style="text-align: center"><span class="color-underline-ud">{{item.total}}</span>人</div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="light-bg light" style="width: 100%;height:80px;margin-top: 10px;">
+        <div class="list text-align-center-ud font-heiti-ud">
+            <div class="item" style="color: #E28080">预约客户</div>
+            <div class="item" ng-click="jump_to_kanchang_tab();">看场客户</div>
+            <div class="item" ng-click="jump_to_yuding_tab();">预定客户</div>
+        </div>
+    </ion-popover-view>
+</script>
+<script id="scheduleShowPage.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">{{sj_name}}</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="yuyueAdd(dangqi)"><img ng-src="img/add.png" style="height: 20px;margin: 6px;"/></button>
+            <!--<button class="button button-clear icon ion-android-add" ui-sref="yuyueAdd({dangqi:dangqi})"></button>-->
+        </ion-nav-buttons>
+        <ion-content overflow-scroll="false">
+            <div class="container">
+                <section class="main">
+                    <div class="custom-calendar-wrap">
+                        <div id="custom-inner" class="custom-inner">
+                            <div class="custom-header clearfix">
+                                <nav>
+                                    <span id="custom-prev" class="custom-prev"></span>
+                                    <span id="custom-next" class="custom-next"></span>
+                                </nav>
+                                <nav>
+                                    <span id="year-prev" class="custom-prev" style="top: 37px;left:5px;"></span>
+                                    <span id="year-next" class="custom-next" style="top: 37px;right:5px;"></span>
+                                </nav>
+                                <h2 id="custom-month" class="custom-month"></h2>
+                                <h3 id="custom-year" class="custom-year"></h3>
+                            </div>
+                            <div id="calendar" class="fc-calendar-container"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="row" style="margin: -60px 10px 0px 10px;font-family: 黑体;">
+                <div class="col col-33"><button class="button-clear" style="background: #f0f0f0;width: 15px;height: 15px;border: 1px solid #ECE4E3;" disabled="disabled"></button> 档期充足</div>
+                <div class="col col-33"><button class="button-clear" style="background: #ffb29d;width: 15px;height: 15px;" disabled="disabled"></button> 档期紧张</div>
+                <div class="col col-33"><button class="button-clear" style="background: #ff7666;width: 15px;height: 15px;" disabled="disabled"></button> 档期已满</div>
+            </div>
+
+
+            <div class="shedule-show-div-ud">
+                <div class="row">
+                    <div id="selected_date" class="col shedule-show-date-ud"></div>
+                    <div id="lunar_date" class="col" style="color: #999999;font-family: 黑体;"></div>
+                </div>
+                <div class="row shedule-room-ud">
+                    <div class="col col-67">大宴会厅（&nbsp;<a href="" class="color-underline-ud" style="font-size: 16px;" id="main_room" ng-click="jump_to_tab(1)">{{zhuting_status_format}}</a>&nbsp;）<br>
+                    辅宴会厅（&nbsp;<a href="" class="color-underline-ud" style="font-size: 16px;" id="ass_room" ng-click="jump_to_tab(2)">{{futing_status_format}}</a>&nbsp;）
+                    </div>
+                    <div class="col col-33 col-center">
+                        <button class="button button-small shedule-button-view-ud" ng-click="jump_to_yuyue_tab();"><span style="color: white;font-family: 黑体;font-size: 16px;">查  看</span></button>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>
+
+

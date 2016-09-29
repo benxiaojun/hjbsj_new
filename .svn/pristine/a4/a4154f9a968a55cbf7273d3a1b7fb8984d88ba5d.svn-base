@@ -1,0 +1,84 @@
+<ion-view hide-back-button="true" cache-view="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">已完成订单</ion-nav-title>
+    <ion-tabs class="tabs-top tabs-striped tabs-color-assertive">
+        <ion-tab title="婚嫁宝订单" on-select="selectOnlineTab()">
+            <ion-view>
+                <ion-content>
+                    <ion-refresher on-refresh="refresh_online_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px 0px 5px;">
+                        <div class="row row-center" ng-click="slide_onLineOrder()">
+                            <div class="col col-50 room-name-ud">{{name}}</div>
+                            <div class="col col-33 room-yuyue-tongji-ud">购买<span class="span-color-ud"> {{total_yuyue}} </span>人</div>
+                            <div class="col icon ion-chevron-up" style="margin-left:10%;display: none;" id="up_arrow_on"></div>
+                            <div class="col icon ion-chevron-down" style="margin-left:10%;" id="down_arrow_on"></div>
+                        </div>
+                        <div class="list" id="detail_on">
+                            <div class="row expand-title-ud">
+                                <div class="col">序号</div>
+                                <div class="col">颜色</div>
+                                <div class="col text-center">数量</div>
+                                <div class="col col-33 text-center">地点</div>
+                                <div class="col col-25 text-center">日期</div>
+                            </div>
+                            <div ng-repeat="item in onlineList">
+                                <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                                <div class="row item-body row-color-ud" ui-sref="hcCompletedOrderDetail({id:item.id,type:0})">
+                                    <div class="col">{{item.xuhao}}</div>
+                                    <div class="col">{{item.ctype}}</div>
+                                    <div class="col text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.count}}</div>
+                                    <div class="col col-33 text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.hotel}}</div>
+                                    <div class="col col-25 text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.dangqi}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="自接订单" on-select="seleectOfflineTab()">
+            <ion-view>
+                <ion-content>
+                    <ion-refresher on-refresh="refresh_offline_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px 0px 5px;">
+                        <div class="row row-center" ng-click="slide_offLineOrder()">
+                            <div class="col col-50 room-name-ud">{{name}}</div>
+                            <div class="col col-33 room-yuyue-tongji-ud">购买<span class="span-color-ud"> {{total_yuyue}} </span>人</div>
+                            <div class="col icon ion-chevron-up" style="margin-left:10%;display: none;" id="up_arrow_off"></div>
+                            <div class="col icon ion-chevron-down" style="margin-left:10%;" id="down_arrow_off"></div>
+                        </div>
+                        <div class="list" id="detail_off">
+                            <div class="row expand-title-ud">
+                                <div class="col">序号</div>
+                                <div class="col">颜色</div>
+                                <div class="col text-center">数量</div>
+                                <div class="col col-33 text-center">地点</div>
+                                <div class="col col-25 text-center">日期</div>
+                            </div>
+                            <div ng-repeat="item in offlineList">
+                                <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                                <div class="row item-body row-color-ud" ui-sref="hcCompletedOrderDetail({id:item.id,type:1})">
+                                    <div class="col">{{item.xuhao}}</div>
+                                    <div class="col">{{item.ctype}}</div>
+                                    <div class="col text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.count}}</div>
+                                    <div class="col col-33 text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.hotel}}</div>
+                                    <div class="col col-25 text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.dangqi}}</div>
+                                </div>
+                            </div>
+                        <div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

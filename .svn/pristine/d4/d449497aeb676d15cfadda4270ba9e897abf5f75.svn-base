@@ -1,0 +1,105 @@
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">预约拆单</ion-nav-title>
+    <ion-content overflow-scroll="false">
+        <div class="list">
+            <div class="row sub-title-ud">
+                <div class="col">宴会厅</div>
+            </div>
+            <div class="row" style="font-size: 14px;font-family: 黑体;" ng-repeat="room in rooms">
+                <div class="col col-33" ng-repeat="item in room">
+                    <label class="item item-radio" style="border-width: 0px;">
+                        <input type="checkbox" name="group" id="room{{item.id}}" ng-click="select_room('{{$index}}','{{item.id}}')">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud text-color-ud border-radius-ud" style="padding: 9px 10px 9px 13px;text-align: center">{{item.name}}</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+            </div>
+            <div id="room_info" ng-repeat="room_one in is_checked_room">
+                <div class="row yuyue-modal-detail-ud" id="room_div{{room_one.id}}">
+                    <div class="col col-66">
+                        {{room_one.name|limitLength}}<br>{{room_one.area}}㎡ ×{{room_one.height}}h  &nbsp;&nbsp;已预约{{room_one.yuyue}}人<br>
+                        可容纳{{room_one.zuoshu}}桌
+                    </div>
+                    <div class="col">
+                        <img src="{{room_one.pinmiantu}}" style="width: 50px;height: 50px">
+                    </div>
+                </div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row row-center">
+                <div class="col col-25 sub-title-ud">预约档期</div>
+                <div class="col col-75 yuyue-modal-detail-ud" style="line-height:5px;height:2px;">{{item.dangqi}}</div>
+            </div>
+            <div class="row">
+                <div class="col col-25 sub-title-ud">预约信息</div>
+            </div>
+            <div class="list" id="change" >
+                <div id="button{{room.id}}"ng-repeat="room in is_checked_room" class="row yuyue-modal-detail-ud" style="margin: -15px 0px -15px 0px;line-height: 38px;">
+                    <div class="col" style="margin-left: 1%;">
+                        <span style="float: left">￥</span>
+                        <input type="number" id="chaidan_hunyan{{room.id}}" value="{{room.price|toFixNumber}}"  ng-keyup="change_cb(room.id)" style="width: 60px;float: left;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;"/>
+                        <span style="float: left">/桌</span></div>
+                    <div class="col" style="margin-left: -25px;margin-right: -15%">{{room.name|limitLength}}</div>
+                    <div class="col" style="width: 300px;margin-right: 5%;">
+                        <button class="button button-small" style="float: left;border:solid rgba(211,211,211,1) 1px;font-size:18px;" id="sub_chaidan{{room.id}}" ng-click="sub('{{room.id}}')">-</button>
+                        <input type="text" id="chaidan_zhuoshu{{room.id}}" class="text-middle-ud" style="height: 31px;width: 31px;background-color:rgb(221, 221, 221);" disabled="disabled" value="{{room.zhushu}}" />
+                        <button class="button button-small" style="float: left;border:solid rgba(211,211,211,1) 1px;font-size:18px;" id="add_chaidan{{room.id}}" ng-click="add('{{room.id}}')">+</button>
+                    </div>
+                </div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row row-center">
+                <div class="col sub-title-ud">预计预算</div>
+                <div class="col yuyue-modal-detail-ud" id="total_price" style="margin-right: 5%;text-align: right;">￥<span>{{item.total_price}}</span></div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-ud">联系方式</div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-25 yuyue-modal-detail-ud">联系人</div>
+                <div class="col col-25 yuyue-modal-detail-ud"><input type="text" id="chaidan_nickname" value="{{item.nickname}}" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: center;width: 85px;"/></div>
+                <div class="col col-25 yuyue-modal-detail-ud">预约序号</div>
+                <div class="col col-25 yuyue-modal-detail-ud">{{item.xuhao}}</div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-25 yuyue-modal-detail-ud">联系电话</div>
+                <div class="col col-75 yuyue-modal-detail-ud"><input type="tel" id="chaidan_phone" value="{{item.phone}}" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: center;width:90%;"/></div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-ud">看场排期</div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-25 yuyue-modal-detail-ud">看场序号</div>
+                <div class="col col-75 yuyue-modal-detail-ud">{{item.kanchang_xuhao}}
+                    <!--<button class="button button-small" style="float: left;" ng-click="dec_num()">-</button>-->
+                    <!--<input type="text" id="kc_xuhao_detail" class="text-middle-ud" value="{{item.kanchang_xuhao}}" />-->
+                    <!--<button class="button button-small" style="float: left;" ng-click="inc_num()">+</button>-->
+                </div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-25 yuyue-modal-detail-ud">看场日期</div>
+                <div class="col col-25 yuyue-modal-detail-ud">
+                    <ionic-datepicker input-obj="datepickerObject" style="float: left;">
+                        <input type="text" id="kc_date_chaidan" placeholder="请选择日期" ng-model="kanchang_date" style="width: 80px;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;"/>
+                    </ionic-datepicker>
+                </div>
+                <div class="col col-33 yuyue-modal-detail-ud">
+                    <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="timePickerCallback" style="float: left;">
+                        <input type="text" id="kc_time_chaidan" placeholder="请选择时间" ng-model="kanchang_time" style="width: 80px;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;">
+                    </ionic-timepicker>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: -20px;">
+            <div class="col text-center"><button class="button button-clear" style="background: #ff7666;width: 120px;border-radius: 3px;" ng-click="confirm_yuding()"><span style="color: white;font-family: 黑体;">确认预定</span></button></div>
+            <div class="col text-center"><button class="button button-clear" style="background:white;width:120px;border-radius: 3px;border-color: #ff7666;" ng-click="cancel_yuding()"><span style="color:#ff7666;font-family: 黑体;">取消预定</span></button></div>
+        </div>
+    </ion-content>
+</ion-view>

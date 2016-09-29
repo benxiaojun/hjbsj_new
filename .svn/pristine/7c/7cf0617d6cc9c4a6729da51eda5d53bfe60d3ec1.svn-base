@@ -1,0 +1,64 @@
+<ion-view hide-back-button="true" cache-view="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">已完成订单</ion-nav-title>
+    <ion-tabs class="tabs-top tabs-striped tabs-color-assertive">
+        <ion-tab title="婚嫁宝订单">
+            <ion-view>
+                <ion-content>
+                    <ion-refresher on-refresh="refresh_online_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px 0px 5px;">
+                        <div class="row expand-title-ud">
+                            <div class="col col-33 text-center">档期</div>
+                            <div class="col text-center">客户</div>
+                            <div class="col">时间</div>
+                            <div class="col col-33 text-center">地点</div>
+                        </div>
+                        <div>
+                            <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                            <div class="row item-body row-color-ud" ui-sref="completedOrderDetail">
+                                <div class="col col-33 text-center">2016.10.01</div>
+                                <div class="col text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">张三</div>
+                                <div class="col">晚宴</div>
+                                <div class="col col-33 text-center">常州香格里拉</div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="自接订单">
+            <ion-view>
+                <ion-content>
+                    <ion-refresher on-refresh="refresh_offline_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px 0px 5px;">
+                        <div class="row expand-title-ud">
+                            <div class="col col-33 text-center">档期</div>
+                            <div class="col text-center">客户</div>
+                            <div class="col">时间</div>
+                            <div class="col col-33 text-center">地点</div>
+                        </div>
+                        <div>
+                            <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                            <div class="row item-body row-color-ud" ng-click="">
+                                <div class="col col-33 text-center">2016.10.01</div>
+                                <div class="col text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">张三</div>
+                                <div class="col">晚宴</div>
+                                <div class="col col-33 text-center">常州香格里拉</div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

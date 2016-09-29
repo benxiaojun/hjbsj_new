@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="460dc51c-81d4-46fc-b76e-be2fe86757f0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/com.ionic.keyboard" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/com.ionic.keyboard/www" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-console" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-console/www" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/buildConfig/debug/com/ionicframework" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/buildConfig/debug/com/ionicframework/hjbnew130565" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/r/debug/com/ionicframework" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/r/debug/com/ionicframework/hjbnew130565" afterPath="" />
+    </list>
+    <list id="d6222981-5b58-4aa7-a1bd-16b2e488ad33" name="Unnecessary Changes" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/hjbsj_new.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/npm-debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-debug.aar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-debug.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-hdpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-hdpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-ldpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-ldpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-mdpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-mdpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xhdpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xhdpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xxhdpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xxhdpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xxxhdpi-v4/icon.png" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-xxxhdpi-v4/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/outputs/apk/android-debug-unaligned.apk" afterPath="$PROJECT_DIR$/platforms/android/build/outputs/apk/android-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/outputs/apk/android-debug.apk" afterPath="$PROJECT_DIR$/platforms/android/build/outputs/apk/android-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-hdpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-hdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-ldpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-ldpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-mdpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-mdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-xhdpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-xhdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-xxhdpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-xxhdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-xxxhdpi/icon.png" afterPath="$PROJECT_DIR$/platforms/android/res/drawable-xxxhdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageResources/debug/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/filters.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/filters.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/services.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/calendar.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/custom_2.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/custom_2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/demo.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/css/demo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/js/jquery.calendario.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/calendario/js/jquery.calendario.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/.gitignore" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/README.md" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/bower.json" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/gulpfile.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/package.json" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/ionic-datepicker.directive.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/ionic-datepicker.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/ionic-datepicker.service.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/ionic-datepicker.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-timepicker/dist/ionic-timepicker.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-timepicker/dist/ionic-timepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/css/ionic.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/css/ionic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/css/ionic.min.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/css/ionic.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic-angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic-angular.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic-angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.bundle.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/js/ionic.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_menu.scss" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_scaffolding.scss" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_scaffolding.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_variables.scss" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/scss/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/version.json" afterPath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic/version.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/accountCenter.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/accountCenter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/allAppointment.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/allAppointment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/hythPage.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/hythPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/settings.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/settings.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tabs.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/yuyueAdd.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/yuyueAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/filters.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/filters.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/services.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/calendar.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/custom_2.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/custom_2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/demo.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/css/demo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/js/jquery.calendario.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/calendario/js/jquery.calendario.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/README.md" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/bower.json" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/gulpfile.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/package.json" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/ionic-datepicker.directive.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/ionic-datepicker.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/ionic-datepicker.service.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/ionic-datepicker.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-timepicker/dist/ionic-timepicker.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-timepicker/dist/ionic-timepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/css/ionic.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/css/ionic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/css/ionic.min.css" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/css/ionic.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic-angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic-angular.min.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic-angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.bundle.min.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.bundle.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.min.js" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/ionic.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_menu.scss" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_scaffolding.scss" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_scaffolding.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_variables.scss" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/scss/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/version.json" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic/version.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/accountCenter.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/accountCenter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/allAppointment.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/allAppointment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/hythPage.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/hythPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/settings.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/settings.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/tabs.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/yuyueAdd.html" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/yuyueAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/xml/config.xml" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/xml/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/platforms/android/build/intermediates/tmp/dex/debug/inputList.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/platforms/android/build/outputs/apk/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/values/strings.xml" afterPath="$PROJECT_DIR$/platforms/android/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" afterPath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" />
+    </list>
+    <list id="5bf225bd-59d6-4eb9-acd2-09fcfd8d621b" name="deleted" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/jquery-1.4.4.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/date-picker-modal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/lib/ionic-datepicker/src/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-console/www/console-via-logger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-console/www/logger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/jquery-1.4.4.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/date-picker-modal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/lib/ionic-datepicker/src/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/buildConfig/debug/com/ionicframework/hjbnew130565/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/generated/source/r/debug/com/ionicframework/hjbnew130565/R.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/classes-47d0a6343e4705089d5339e2854e88b6287f9cc8.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/build/intermediates/res/debug/drawable-port-xhdpi-v4/screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-port-xhdpi/screen.png" afterPath="" />
+    </list>
+    <ignored path="hjbsj_new.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hjbsj_new" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+              <folding>
+                <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accountCenter.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/templates/accountCenter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/www/js/services.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hjbsj_new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\benxj\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="F:\hjbsj_new" />
+          <option name="myCopyRoot" value="F:\hjbsj_new" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="F:\hjbsj_new" />
+          <option name="myCopyRoot" value="F:\hjbsj_new" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="460dc51c-81d4-46fc-b76e-be2fe86757f0" name="Default" comment="" />
+      <created>1471596076539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1471596076539</updated>
+      <workItem from="1471917307921" duration="141000" />
+      <workItem from="1471917542262" duration="67000" />
+      <workItem from="1471917636977" duration="1596000" />
+      <workItem from="1473144638046" duration="215000" />
+      <workItem from="1473145026991" duration="584000" />
+    </task>
+    <task id="LOCAL-00001" summary=" 【线下订单】新增线下订单，选择同城，新增成功后，显示的服务城市是常州">
+      <created>1471597694704</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1471597694704</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2603000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20190275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5021119" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47550112" sideWeight="0.49788806" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" 【线下订单】新增线下订单，选择同城，新增成功后，显示的服务城市是常州" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 【线下订单】新增线下订单，选择同城，新增成功后，显示的服务城市是常州" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/accountCenter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/accountCenter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/accountCenter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+          <folding>
+            <marker date="1471598016442" expanded="true" signature="1945:1979" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/accountCenter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

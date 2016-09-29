@@ -1,0 +1,278 @@
+/* Empty. Add your own CSS if you like */
+.text-align-center-ud{
+    text-align: center;
+}
+.text-color-ud{
+    color: #999999;
+}
+.div-login-ud{
+    font-size:25px;text-align:center;font-family: 黑体;
+}
+.div-sub-ud{
+    font-size:18px;color: #777777;position: relative;margin-left: 120px;margin-top: 10px;
+}
+.div-forget-ud{
+    font-size:18px;color: #cccccc;text-align:right;font-family: 黑体;margin-right: 6%;
+}
+.login-content{
+    margin: 80px 0px 0px 0px ;
+}
+.div-bottom-ud{
+    font-size: 13px;position: fixed;bottom: 20px;width: 100%;text-align:center;line-height: 16px;font-weight: 600;color: #444444;
+}
+.item-margin-ud{
+    margin: 0px 0px 20px 0px ;
+}
+.img-height-width-ud{
+    width: 100%;height: 300px;
+}
+.text-on-img-ud{
+    background-color:rgba(255,255,255,0.7);position: absolute;bottom: 5px;width:100%;height: 80px;
+}
+ion-slide{
+    text-align:center;
+}
+ion-slide img{
+    height:300px;
+}
+.td-title-ud{
+    font-size: 15px;font-weight: bold;
+}
+.td-content-ud{
+    font-size: 15px;color: #999999;
+}
+.nav-title-ud{
+    color:  #ff7666;font-weight: bold;
+}
+.shedule-button1-ud{
+    background: #ffb29d;width: 120px;border: 1px solid #ECE4E3;border-radius: 3px;
+}
+.shedule-button2-ud{
+    background: #ff7666;width: 120px;border: 1px solid #ECE4E3;border-radius: 3px;
+}
+.sub-title-ud{
+    font-size: 16px;font-weight: 100;margin-left: 10px;font-family: 黑体;margin-top: 10px;
+}
+.yuyue-modal-content-ud{
+    font-size: 14px;color: #777777;margin-left: 10px;font-family: 黑体;
+}
+.yuyue-modal-detail-ud{
+    font-size: 14px;font-family: 黑体;margin-left: 10px;
+}
+.text-middle-ud{
+    height: 30px;width: 30px;text-align: center;float: left;border: 2px solid #999999;
+}
+.shedule-show-div-ud{
+    border:1px solid #D7CFCF;margin: 0px 10px 0px 10px
+}
+.shedule-show-date-ud{
+    font-size:25px;color: #ff7666;font-weight: bold;line-height: normal;font-family:黑体;margin: 10px 10px 10px 10px;
+}
+.shedule-room-ud{
+    font-size: 14px;margin: 10px 10px 0px 2px;font-family: 黑体;
+}
+.shedule-button-view-ud{
+    background: #ff7666;width: 90%;border-radius: 5px;border-color: white;
+}
+.fir-page-dangqi-ud{
+    color: #ff7666;font-size: 14px;font-weight: 600
+}
+.room-name-ud{
+    color: #ff7666;font-weight: bold;font-size: 16px;
+}
+.room-yuyue-tongji-ud{
+    font-size: 14px;font-family: 黑体;
+}
+.expand-title-ud{
+    font-size: 15px;font-weight: normal;font-family: 黑体
+}
+.span-color-ud{
+    color: #ff7666;font-size: 18px;
+}
+.color-underline-ud{
+    color: #ff7666;font-size: 18px;
+}
+.hycb-boder-ud{
+    text-align: center;border-right: 1px solid;border-bottom:1px solid;border-color: #999999
+}
+.row-color-ud{
+    color: gray;font-family: 黑体;font-size: 15px;
+}
+.marg-le-ud{
+    margin-left: 20px;
+}
+.account-center-sj-ud{
+    font-family: 黑体;font-size: 20px;line-height: 40px;
+}
+.sj-addr-ud{
+    font-family: 黑体;font-size: 16px;
+}
+.font-heiti-ud{
+    font-family: 黑体;
+}
+.common-color-ud{
+    color: #ff7666;
+}
+.chakan-detail-div{
+    background-color:rgba(19, 18, 18, 0.2);position: absolute;top: 12px;right: 12px;width:80px;height: 35px;border-radius: 8px;text-align: center;
+}
+.text-boder-ud{
+    border: 1px solid #ECE4E3;border-radius:3px;text-align: center;
+}
+.delete-button-ud{
+    width: 30%;border-radius: 5px;border-color: white;position: absolute;right: 10px;top: 5px;bottom: 5px;
+}
+.delete-button-red-ud{
+    background: #ff7666;
+}
+.delete-button-grey-ud{
+    background:grey;
+}
+
+.message-list-ud{
+    font-family: 黑体;font-size: 16px;margin-left: 0px;line-height: 2em;color: #777777;padding: 0px 21px 0px 28px;
+}
+.message-read-ud{
+    color: grey;
+}
+.message-sub-ud1{
+    color: #0f0f0f
+}
+.message-sub-ud2{
+    color: #979797
+}
+.message-sub-ud3{
+    color: #717171
+}
+.img-autosize-ud{
+    width:100%
+}
+.myPopup > .popup { border-radius: 8px !important; }
+
+.sub-title-order-ud{
+    font-size: 19px;
+}
+.tab-title{
+    color: black;
+    font-family: 黑体;
+    font-size: 16px;
+}
+.item-radio input:checked + .radio-content .item-content {
+    /* style the item content when its checked */
+    background: #FF7666;
+    /*border: 1px solid #FF7666;*/
+}
+.calendar-lunch-span-ud{
+    font-size: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 65%;
+    width: 25%;
+    line-height: 12px;
+    text-align: center;
+}
+.calendar-lunch-top-ud{
+    border-top: 1px solid blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 37%;
+}
+.calendar-lunch-left-ud{
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    top: 0;
+    border-left: 1px solid blue;
+}
+.calendar-dinner-span-ud{
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 65%;
+    width: 25%;
+    line-height: 12px;
+    text-align: center;
+}
+.calendar-dinner-bottom-ud{
+    border-bottom: 1px solid red;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 37%;
+}
+.calendar-dinner-right-ud{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 5%;
+    border-right: 1px solid red;
+}
+
+/**image view css*/
+.transparent {
+    background: transparent !important;
+}
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.slider {
+    width: 100%;
+    height: 100%;
+}
+p.info {
+    position: absolute;
+    bottom: 55px;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+}
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+    .active .modal-backdrop-bg {
+        opacity: 1;
+    }
+    .modal-backdrop-bg {
+        -webkit-transition: opacity 300ms ease-in-out;
+        transition: opacity 300ms ease-in-out;
+        background-color: #000;
+        opacity: 0;
+    }
+}
+.img-number-ud{
+    background-color:rgba(19, 18, 18, 0.2);position: absolute;top: 13em;right: 12px;width:80px;height: 35px;border-radius: 8px;text-align: center;
+}
+
+.button.button-assertive {
+    border-color: transparent;
+    background-color: #ff7666;
+    color: #fff;
+}
+.popup-buttons .button {
+    border-radius: 6px;
+}

@@ -1,0 +1,272 @@
+<ion-view hide-back-button="true" hide-nav-bar="false" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goto_schedule_view()"><span class="fir-page-dangqi-ud">档期日历</span></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">新增客户</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="goto_personalCenter()"><img src="img/home.png" style="height: 25px;margin: 5px 8px 0px 0px;"/></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh_newCustomerList()"
+                       pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                       refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                       refreshing-icon="ion-loading-a">
+        </ion-refresher>
+        <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px 0px 5px;">
+            <div class="row expand-title-ud">
+                <div class="col">序号</div>
+                <div class="col col-20 text-center">客户</div>
+                <div class="col">时间</div>
+                <div class="col col-25 text-center">预约档期</div>
+                <div class="col col-25 text-right">付款情况</div>
+            </div>
+            <div ng-repeat="item in yuyuelist">
+                <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                <div class="row item-body row-color-ud" ng-click="gotoOrderDetail(item.id)">
+                    <div class="col">{{item.id}}</div>
+                    <div class="col col-20 text-center" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.yonghu}}</div>
+                    <div class="col text-center">{{item.ytype}}</div>
+                    <div class="col col-33 text-center">{{item.dangqi}}</div>
+                    <div class="col col-20 text-center">{{item.fukuantype}}</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="addOrder.html" type="text/ng-template">
+    <ion-view cache-view="false" hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">新增订单</ion-nav-title>
+        <ion-content class="font-heiti-ud">
+            <div class="row row-center">
+                <div class="col col-25 sub-title-order-ud">服务档期</div>
+                <div class="col">
+                    <ionic-datepicker input-obj="datepickerObject" style="float: left;">
+                        <input type="text" id="dangqi" placeholder="请选择服务档期" ng-model="serveDate" class="font-heiti-ud" style="width: 105px;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;"/>
+                    </ionic-datepicker>
+                </div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-order-ud">婚礼时间</div>
+            </div>
+            <div class="row">
+                <div class="col col-33">
+                    <label class="item item-radio" style="border-radius: 5px;">
+                        <input type="radio" name="timeGroup" id="lunchTime" value="0" ng-checked="true">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud" style="padding: 2px 1px 2px 1px;text-align:center;font-size:13px;">{{jiage_list[0].ytype}}<br>({{jiage_list[0].begin_time}}:00~{{jiage_list[0].end_time}}:00)</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+                <div class="col col-33">
+                    <label class="item item-radio" style="border-radius: 5px;">
+                        <input type="radio" name="timeGroup" id="dinnerTime" value="1">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud" style="padding: 2px 1px 2px 1px;text-align:center;font-size:13px;">{{jiage_list[1].ytype}}<br>({{jiage_list[1].begin_time}}:00~{{jiage_list[1].end_time}}:00)</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+                <div class="col col-33">
+                    <label class="item item-radio" style="border-radius: 5px;">
+                        <input type="radio" name="timeGroup" id="allDay" value="2">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud" style="padding: 2px 1px 2px 1px;text-align:center;font-size:13px;">{{jiage_list[2].ytype}}<br>({{jiage_list[2].begin_time}}:00~{{jiage_list[2].end_time}}:00)</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-order-ud">婚礼地点</div>
+            </div>
+            <div class="row">
+                <div class="col col-33">
+                    <label class="item item-radio" style="border-radius: 5px;">
+                        <input type="radio" name="addressGroup" id="local" ng-checked="true" value="0" ng-click="chooseAddr(0)">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud" style="padding: 2px 1px 2px 1px;text-align: center">同城</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+                <div class="col col-33"></div>
+                <div class="col col-33">
+                    <label class="item item-radio" style="border-radius: 5px;">
+                        <input type="radio" name="addressGroup" id="nonlocal" value="1" ng-click="chooseAddr(1)">
+                        <div class="radio-content">
+                            <div class="item-content font-heiti-ud" style="padding: 2px 1px 2px 1px;text-align: center">异地</div>
+                        </div>
+                        <i class="radio-icon ion-ios-checkmark assertive" style="padding: 16px 2px;font-size: 20px;"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="row row-center row-color-ud" ng-hide="hideCity">
+                <div class="col col-25">异地城市</div>
+                <div class="col"><input type="text" id="nonlocalCity" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%"/></div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row row-center" ng-click="showExtraService()">
+                <div class="col col-25 sub-title-order-ud">增值服务</div>
+                <div class="col"><span>{{extraServ}}</span><i class="icon ion-ios-arrow-right" style="font-size: 23px;float: right;"></i></div>
+
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row row-center">
+                <div class="col sub-title-order-ud">总金额</div>
+                <div class="col">
+                    <span style="float:left;line-height: 35px;margin-left: 2em;">￥</span>
+                    <input type="number" id="totalPrice" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 110px;float: right;"></div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-order-ud">预定信息</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">推介商家</div>
+                <div class="col col-25"><input type="text" id="recommendPerson" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 85px;"/></div>
+                <div class="col col-25 text-center">预定序号</div>
+                <div class="col col-25">{{order_xuhao}}</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">联系电话</div>
+                <div class="col col-75"><input type="tel" id="contactPhone" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%;"/></div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-order-ud">新人信息</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新郎姓名</div>
+                <div class="col"><input type="text" id="brideName" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%;"/></div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新娘姓名</div>
+                <div class="col"><input type="text" id="bridegroomName" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%;"/></div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">婚礼场所</div>
+                <div class="col"><input type="text" id="weedingAddr" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%;"/></div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新人电话</div>
+                <div class="col"><input type="tel" id="newerMobile" style="border: 1px solid #ECE4E3;border-radius:3px;text-align: left;width: 100%;"/></div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">会面时间</div>
+                <div class="col col-25">
+                    <ionic-datepicker input-obj="datepickerObject2" style="float: left;">
+                        <input type="text" id="meet_date" placeholder="请选择日期" class="font-heiti-ud" style="width: 80px;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;"/>
+                    </ionic-datepicker>
+                </div>
+                <div class="col col-33">
+                    <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="timePickerCallback" style="float: left;">
+                        <input type="text" id="meet_time" placeholder="请选择时间" class="font-heiti-ud" style="width: 80px;border: 1px solid #ECE4E3;border-radius:3px;text-align: center;"/>
+                    </ionic-timepicker>
+                </div>
+            </div>
+            <div class="row row-color-ud">
+                <div class="col col-25">备注</div>
+                <div class="col"><textarea id="comment" rows="5" cols="30" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;"></textarea></div>
+            </div>
+            <!--<HR align=center width="95%" color=#D8D8D8 SIZE=1>-->
+            <!--<div class="row row-center">-->
+                <!--<div class="col text-center">-->
+                    <!--<button class="button button-clear ion-ios-plus-outline" style="font-family: 黑体;font-size: 20px;color: #ff7666;">添加节目单</button>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row row-center">
+                <div class="col text-center">
+                    <button class="button button-clear" style="background: #ff7666;width:90%;border-color:white;border-radius:8px;" ng-click="commitNewOrder()">
+                        <span style="color: white;font-size: medium;font-family: 黑体">确 定</span></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="offlineOrderInfo.html" type="text/ng-template">
+    <ion-view hide-back-button="true" cache-view="false">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">订单信息</ion-nav-title>
+        <ion-content class="font-heiti-ud" overflow-scroll="false">
+            <div class="row row-center">
+                <div class="col sub-title-order-ud">服务信息</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col">订单编号：2015110200012545</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col">服务档期：2016.01.01</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col">服务内容：2016.05.01  午宴(08:00~14:00) 本地</div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row row-center">
+                <div class="col col-25 sub-title-order-ud">总金额</div>
+                <div class="col">
+                    <span style="float:right;font-size: 20px;font-weight: 600;">￥2000.00</span><br/>
+                </div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row ">
+                <div class="col sub-title-order-ud">预定信息</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">推介商家</div>
+                <div class="col col-25">嘉实婚庆</div>
+                <div class="col col-25 text-center">预定序号</div>
+                <div class="col col-25 text-center">001</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">联系电话</div>
+                <div class="col">18189898999</div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="row">
+                <div class="col sub-title-order-ud">新人信息</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新郎姓名</div>
+                <div class="col">张先生</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新娘姓名</div>
+                <div class="col">李小姐</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">婚礼场所</div>
+                <div class="col">常州香格里拉大酒店</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">新人电话</div>
+                <div class="col">18112509889</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">会面时间</div>
+                <div class="col">2015.07.06 10:00 am</div>
+            </div>
+            <div class="row row-color-ud">
+                <div class="col col-25">备注</div>
+                <div class="col"><textarea rows="5" cols="30" style="border:1px solid #ECE4E3;border-radius:3px;width:100%;"></textarea></div>
+            </div>
+            <div class="row row-center">
+                <div class="col text-center">
+                    <button class="button button-clear" style="background: white;width:90%;border-color:#ff7666;border-radius:8px;" ng-click="completeOrder()">
+                        <span style="color: #ff7666;font-size: medium;font-family: 黑体">完成订单</span></button>
+                </div>
+                <div class="col text-center">
+                    <button class="button button-clear" style="background: #ff7666;width:90%;border-color:#ff7666;border-radius:8px;" ng-click="saveOrder()">
+                        <span style="color: white;font-size: medium;font-family: 黑体">保 存</span></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>

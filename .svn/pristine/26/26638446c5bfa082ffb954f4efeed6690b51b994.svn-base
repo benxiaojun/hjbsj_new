@@ -1,0 +1,84 @@
+<ion-view hide-back-button="true" cache-view="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">全部预定客户</ion-nav-title>
+    <ion-tabs class="tabs-top tabs-striped tabs-color-assertive">
+        <ion-tab title="婚嫁宝客户" on-select="selectOnlineTab()">
+            <ion-view>
+                <ion-content overflow-scroll="false">
+                    <ion-refresher on-refresh="refresh_online_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px -11px 5px;" ng-repeat="room in yanghuiting_list">
+                        <div class="row row-center" ng-click="slide_onLineOrder($index)">
+                            <div class="col col-50 room-name-ud">{{room.name|limitLength}} {{room.floor}}F</div>
+                            <div class="col col-33 room-yuyue-tongji-ud">总计<span class="span-color-ud"> {{room.yuding_total}} </span>人</div>
+                            <div class="col icon ion-chevron-up" style="margin-left:10%;display: none;" id="up_arrow_on{{$index}}"></div>
+                            <div class="col icon ion-chevron-down" style="margin-left:10%;" id="down_arrow_on{{$index}}"></div>
+                        </div>
+                        <div class="list" id="detail_on{{$index}}" style="display:none">
+                            <div class="row expand-title-ud">
+                                <div class="col text-center">序号</div>
+                                <div class="col text-center">桌数</div>
+                                <div class="col col-20 text-center">餐系</div>
+                                <div class="col col-25 text-center">总计</div>
+                                <div class="col col-25 text-center">日期</div>
+                            </div>
+                            <div ng-repeat="item in room.yuding_list">
+                                <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                                <div class="row item-body row-color-ud" ui-sref="show_yuding_detail({id:item.id,wtype:3})">
+                                    <div class="col text-center">{{item.id}}</div>
+                                    <div class="col text-center">{{item.yuding_zhushu}}</div>
+                                    <div class="col col-20 text-center">￥{{item.yuding_price|toFixNumber}}</div>
+                                    <div class="col col-25 text-center">￥{{item.total_price}}</div>
+                                    <div class="col col-25 text-center">{{item.dangqi}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="自接客户" on-select="seleectOfflineTab()">
+            <ion-view>
+                <ion-content overflow-scroll="false">
+                    <ion-refresher on-refresh="refresh_offline_order()"
+                                   pulling-text="<span class='font-heiti-ud'>下拉刷新...</span>"
+                                   refreshing-text="<span class='font-heiti-ud'>正在刷新...</span>"
+                                   refreshing-icon="ion-loading-a">
+                    </ion-refresher>
+                    <div class="list" style="border: 1px solid #D7CFCF;margin: 10px 5px -11px 5px;" ng-repeat="room in yanghuiting_list">
+                        <div class="row row-center" ng-click="slide_offLineOrder($index)">
+                            <div class="col col-50 room-name-ud">{{room.name|limitLength}} {{room.floor}}F</div>
+                            <div class="col col-33 room-yuyue-tongji-ud">总计<span class="span-color-ud"> {{room.yuding_total}} </span>人</div>
+                            <div class="col icon ion-chevron-up" style="margin-left:10%;display: none;" id="up_arrow_off{{$index}}"></div>
+                            <div class="col icon ion-chevron-down" style="margin-left:10%;" id="down_arrow_off{{$index}}"></div>
+                        </div>
+                        <div class="list" id="detail_off{{$index}}" style="display:none">
+                            <div class="row expand-title-ud">
+                                <div class="col text-center">序号</div>
+                                <div class="col text-center">桌数</div>
+                                <div class="col col-20 text-center">餐系</div>
+                                <div class="col col-25 text-center">总计</div>
+                                <div class="col col-25 text-center">日期</div>
+                            </div>
+                            <div ng-repeat="item in room.yuding_list">
+                                <HR align=center width="100%" color=#D8D8D8 SIZE=1>
+                                <div class="row item-body row-color-ud" ui-sref="show_yuding_detail({id:item.id,wtype:4})">
+                                    <div class="col text-center">{{item.id}}</div>
+                                    <div class="col text-center">{{item.yuding_zhushu}}</div>
+                                    <div class="col col-20 text-center">￥{{item.yuding_price|toFixNumber}}</div>
+                                    <div class="col col-25 text-center">￥{{item.total_price}}</div>
+                                    <div class="col col-25 text-center">{{item.dangqi}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

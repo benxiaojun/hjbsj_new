@@ -1,0 +1,74 @@
+<ion-view hide-back-button="true" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">订单信息</ion-nav-title>
+    <ion-content class="font-heiti-ud" overflow-scroll="false">
+        <div class="row row-center">
+            <div class="col sub-title-order-ud">服务信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">订单编号：2015110200012545</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务档期：2016.01.01</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务内容：2016.05.01  午宴(08:00~14:00) 本地</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row row-center">
+            <div class="col col-25 sub-title-order-ud">总金额</div>
+            <div class="col">
+                <span style="float:right;font-size: 20px;font-weight: 600;">￥2000.00</span><br/>
+            </div>
+        </div>
+        <div class="row row-center">
+            <div class="col"><span class="row-color-ud" style="float:right;">已付：600.00 &nbsp;&nbsp;待付：1400.00</span></div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row ">
+            <div class="col sub-title-order-ud">预定信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">预定用户</div>
+            <div class="col col-25">Candice</div>
+            <div class="col col-25 text-center">预定序号</div>
+            <div class="col col-25 text-center">001</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">联系电话</div>
+            <div class="col">18189898999</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row">
+            <div class="col sub-title-order-ud">新人信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新郎姓名</div>
+            <div class="col">张先生</div>
+            <div class="col" style="color: red;margin-left: -8em;" ng-show="true">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新娘姓名</div>
+            <div class="col">李小姐</div>
+            <div class="col" style="color: red;margin-left: -8em;" ng-hide="true">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">婚礼场所</div>
+            <div class="col">常州香格里拉大酒店</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新人电话</div>
+            <div class="col">18112509889</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">会面时间</div>
+            <div class="col">2015.07.06 10:00 am</div>
+        </div>
+        <div class="row row-color-ud">
+            <div class="col col-25">备注</div>
+            <div class="col">常州香格里拉大酒店</div>
+        </div>
+    </ion-content>
+</ion-view>

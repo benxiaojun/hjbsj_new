@@ -1,0 +1,46 @@
+<ion-view style="background: #ff7666" hide-nav-bar="true" cache-view="false">
+    <ion-content overflow-scroll="false">
+    <div>
+        <div style="text-align: center"><img src="img/logo2.png" style="margin: 70px 0px 30px 0px;width:30%;"></div>
+        <div style="text-align: center;font-family: 黑体;color: white;">
+            <span style="font-size: 40px;">婚嫁宝</span>
+            <span style="font-size: 40px;">.</span>
+            <span style="font-size: 16px;">商家版</span>
+        </div>
+        <!--<div class="button-clear" ng-click="back()"><span style="color: lightcoral">< 登录</span></div>-->
+        <div class="list list-inset" style="background: #ff7666">
+            <label class="item item-input item-select" style="border-radius: 20px;margin:15px auto;opacity: 0.5;width: 85%;">
+                <span class="input-label" style="font-family: 黑体;"><img src="img/loginRole.png" style="width: 27%;"/></span>
+                <select style="font-family: 黑体;font-size: 16px;direction: ltr;padding: 0 29px 0 6px;max-width: 100%" id="userType">
+                    <option value="0">请选择登录商家类型</option>
+                    <option value="1">酒店商家</option>
+                    <option value="2">四大金刚</option>
+                </select>
+            </label>
+            <label class="item item-input" style="border-radius: 15px;margin:3px auto;opacity: 0.5;width: 85%;">
+                <span class="input-label" style="font-family: 黑体;"><img src="img/loginUsr.png" style="width: 28%;"/></span>
+                <input type="text" style="font-size: 16px;font-family: 黑体;" placeholder="请输入登录帐号" ng-model="data.username">
+            </label>
+            <label class="item item-input" style="border-radius: 15px;margin:15px auto;opacity: 0.5;width: 85%;">
+                <span class="input-label" style="font-family: 黑体;"><img src="img/loginPwd.png" style="width: 22%;"/></span>
+               <input type="password" style="font-size: 16px;font-family: 黑体;" placeholder="请输入登录密码" ng-model="data.password">
+            </label>
+        </div>
+        <div class="row" style="margin-top: -10px;">
+            <div class="col text-center">
+            <button class="button button-clear" style="background: white;width: 85%;border-radius:20px;" ng-click="login()">
+                <span style="color: #ff7666;font-size: 20px;font-family: 黑体">登&nbsp;&nbsp;录</span>
+            </button>
+            </div>
+        </div>
+        <div class="div-forget-ud"><span ng-click="forgetPwd()">忘记密码？</span></div>
+        <!--<div class="div-bottom-ud">-->
+            <!--<span><img src="img/mobile.png" style="width: 13px;height: 13px;">-->
+            <!--400-838-5018</br>www.hunjiabao.net</br>常州天仁文化传媒有限公司</span>-->
+        <!--</div>-->
+    </div>
+    </ion-content>
+</ion-view>
+
+
+

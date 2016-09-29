@@ -1,0 +1,89 @@
+
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">设置</ion-nav-title>
+    <ion-content overflow-scroll="false">
+        <ion-list>
+            <!--<ion-item class="item-icon-right font-heiti-ud" ui-sref="schedulePage">档期开放设置-->
+                <!--<i class="icon ion-ios-arrow-right"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item-icon-right font-heiti-ud">意见反馈-->
+                <!--<i class="icon ion-ios-arrow-right"></i>-->
+            <!--</ion-item>-->
+            <ion-item class="item-icon-right font-heiti-ud" ui-sref="contactUs">联系我们
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right font-heiti-ud" ui-sref="changePassword">修改密码
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+        <!--<button class="button button-block" style="background:red" ng-click="logout()">-->
+            <!--<span style="color: white;font-size: medium;font-family: 黑体">退出当前账户</span>-->
+        <!--</button>-->
+    </ion-content>
+</ion-view>
+<script id="schedulePage.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">设置档期状态</ion-nav-title>
+        <ion-content>
+            <div class="container">
+                <section class="main">
+                    <div class="custom-calendar-wrap">
+                        <div id="custom-inner2" class="custom-inner">
+                            <div class="custom-header clearfix">
+                                <nav>
+                                    <span id="custom-prev2" class="custom-prev"></span>
+                                    <span id="custom-next2" class="custom-next"></span>
+                                </nav>
+                                <h2 id="custom-month2" class="custom-month"></h2>
+                                <h3 id="custom-year2" class="custom-year"></h3>
+                            </div>
+                            <div id="calendar_setting" class="fc-calendar-container"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="selected_date" class="font-heiti-ud" style="  margin: -36px 0px 15px 36px;"></div>
+            <div class="row" ng-show="closeButton">
+                <div class="col text-center"><button class="button shedule-button1-ud" ng-click="jump_to_yuyue_tab()"><span style="color: white;font-family: 黑体;">查看预约</span></button></div>
+                <div class="col text-center"><button class="button shedule-button2-ud" ng-click="closeSchedule()"><span style="color: white;font-family: 黑体;">关闭档期</span></button></div>
+            </div>
+            <div class="row" ng-show="releaseButton">
+                <div class="col text-center"><button class="button shedule-button1-ud" ui-sref="yuyueAdd({dangqi:dangqi})"><span style="color: white;font-family: 黑体;">新增预约</span></button></div>
+                <div class="col text-center"><button class="button shedule-button2-ud" ng-click="releaseSchedule()"><span style="color: white;font-family: 黑体;">释放档期</span></button></div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="changePassword.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">修改密码</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="completeChange()"><span style="color: #ff7666;font-size: 14px;font-family: 黑体;margin-right: 5px;font-weight: 600;">完成</span></button>
+        </ion-nav-buttons>
+        <ion-content style="background:  #eeeeee">
+            <div class="list font-heiti-ud" style="margin-top: 12px;">
+                <label class="item item-input">
+                    <span class="input-label" style="font-weight: 600;">原密码</span>
+                    <input class="font-heiti-ud" type="password" id="oldPwd" placeholder="请输入原密码">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label" style="font-weight: 600;">新密码</span>
+                    <input class="font-heiti-ud" type="password" id="newPwd" placeholder="请输入新密码">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label" style="font-weight: 600;">确认密码</span>
+                    <input class="font-heiti-ud" type="password" id="confirmPwd" placeholder="请输入确认密码">
+                </label>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>

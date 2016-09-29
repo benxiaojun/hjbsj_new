@@ -1,0 +1,92 @@
+<ion-view hide-back-button="true" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">订单信息</ion-nav-title>
+    <ion-content class="font-heiti-ud" overflow-scroll="false">
+        <div class="row row-center">
+            <div class="col sub-title-order-ud">服务信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">订单编号：{{item.orderno}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务档期：{{item.dangqi}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务内容：{{item.ytype}}({{item.begin_time}}~{{item.end_time}}) {{item.city_name}} {{item.ewaifuwu}}</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row row-center">
+            <div class="col col-25 sub-title-order-ud">总金额</div>
+            <div class="col">
+                <span style="float:right;font-size: 20px;font-weight: 600;">￥{{item.yuding_price}}</span><br/>
+            </div>
+        </div>
+        <div class="row row-center" id="pay_info_row">
+            <div class="col"><span class="row-color-ud" style="float:right;"><nobr>已付：{{item.bencizhifu}} &nbsp;&nbsp;<span id="pay_stat"></span></nobr></span></div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row ">
+            <div class="col sub-title-order-ud">预定信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">{{orderUser}}</div>
+            <div class="col col-25">{{item.yonghu}}</div>
+            <div class="col col-25 text-center">预定序号</div>
+            <div class="col col-25 text-center">{{item.yuding_xuhao}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">联系电话</div>
+            <div class="col">{{item.phone}}</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row">
+            <div class="col sub-title-order-ud">新人信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新郎姓名</div>
+            <div class="col">{{item.man}}</div>
+            <div class="col" style="color: red;margin-left: -8em;" id="contact_man_flag" ng-show="contactMan">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新娘姓名</div>
+            <div class="col">{{item.woman}}</div>
+            <div class="col" style="color: red;margin-left: -8em;" id="contact_woman_flag" ng-hide="contactMan">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">婚礼场所</div>
+            <div class="col">{{item.hotel}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新人电话</div>
+            <div class="col">{{item.xinrenphone}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">会面时间</div>
+            <div class="col">{{item.huimianshijian}}</div>
+        </div>
+        <div class="row row-color-ud">
+            <div class="col col-25">备注</div>
+            <div class="col">{{item.beizhu}}</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row">
+            <div class="col sub-title-order-ud">订单信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">下单时间</div>
+            <div class="col">{{item.create_time}}</div>
+        </div>
+        <div ng-show="is_tuikuan" style="margin-top: -10px;">
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">取消时间</div>
+                <div class="col">{{item.cancel_time}}</div>
+            </div>
+            <div class="row row-center row-color-ud">
+                <div class="col col-25">取消原因</div>
+                <div class="col">{{item.reason}}</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

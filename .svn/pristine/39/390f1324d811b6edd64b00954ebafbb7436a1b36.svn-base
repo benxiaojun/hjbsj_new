@@ -1,0 +1,220 @@
+<!--<ion-nav-bar class="bar-block">-->
+<!--</ion-nav-bar>-->
+<ion-view style="background:  #fff7fb" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">{{title}}</ion-nav-title>
+    <ion-content>
+        <div style="position: relative;" ng-click="showDetail()"><img src="{{index_img_one}}" class="img-height-width-ud">
+            <div class="text-on-img-ud">
+                <span class="marg-le-ud account-center-sj-ud">{{title}}</span>
+                <br><span class="marg-le-ud sj-addr-ud">{{address}}</span>
+                <br><span class="marg-le-ud sj-addr-ud">{{tel}}</span>
+            </div>
+            <div class="chakan-detail-div">
+                <span style="  font-family: 黑体;font-size: 15px;color: white;line-height: 2.5;">查看详情</span>
+            </div>
+        </div>
+        <ion-list>
+            <ion-item class="item-icon-right item-margin-ud font-heiti-ud" ui-sref="hythPage">
+                <img src="./img/hui.png" style="vertical-align: bottom;height: 21px;">
+                婚宴特惠
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right font-heiti-ud" ng-click="goto_order_all()">全部预订
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right font-heiti-ud" ng-click="goto_yht()">宴会厅
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right item-margin-ud font-heiti-ud" ng-click="goto_hycb()">婚宴餐标
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right font-heiti-ud" ui-sref="setting">设置
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="hotelDetail.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">{{title}}</ion-nav-title>
+        <ion-content>
+            <ul class="list">
+                <li class="item item-margin-ud">
+                    <ion-slide-box does-continue="false" show-pager="true" auto-play="false" active-slide="index" delegate-handle="image-viewer">
+                        <ion-slide ng-repeat="image in images">
+                            <img src="{{image}}">
+                        </ion-slide>
+                    </ion-slide-box>
+                    <div style="display: inline;float: left">{{address}}</div><div style="display: inline;float: right">{{index+1}}/{{slideCount}}</div>
+                </li>
+                <li class="item"><h2>酒店介绍</h2>
+                <div class="td-content-ud" >
+                    <p style="word-break: break-all;word-wrap: break-word;white-space: pre-wrap">{{brief}}</p>
+                </div>
+                </li>
+                <li class="item scroll-content">
+                        <div class="row">
+                            <div class="td-title-ud col">服务费</div>
+                            <div class="td-content-ud col">{{fuwufei}}</div>
+                            <div class="td-title-ud col">停车位</div>
+                            <div class="td-content-ud col">{{tingchechang}}</div>
+                            <div class="td-title-ud col">开瓶费</div>
+                            <div class="td-content-ud col">{{kaipingfei}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="td-title-ud col">进场费</div>
+                            <div class="td-content-ud col">{{jingchangfei}}</div>
+                            <div class="td-title-ud col">化妆间</div>
+                            <div class="td-content-ud col">{{huazhaungjian}}</div>
+                            <div class="td-title-ud col">婚房</div>
+                            <div class="td-content-ud col">{{hunfang}}</div>
+                        </div>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="yhtPage.html" type="text/ng-template">
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">宴会厅</ion-nav-title>
+    <ion-content>
+        <div class="font-heiti-ud" style=" font-size: 18px;margin: 10px;">{{yanhuiting_count}}个宴会厅</div>
+        <ul class="list" ng-repeat="item in items">
+            <li class="item item-thumbnail-left font-heiti-ud">
+                <img src="{{item.tuji1}}">
+                <h2 class="font-heiti-ud">{{item.name}}&nbsp;{{item.floor}}F</h2>
+                <p>可容纳 {{item.zuoshu}} 桌</p>
+                <p>{{item.area}}㎡ × {{item.height}}h</p>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>
+</script>
+<script id="hycbPage.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">婚宴餐标</ion-nav-title>
+        <ion-content>
+            <div style=" font-size: 18px;margin: 10px;">日常餐标</div>
+            <div class="has-header" style="">
+                <div class="row row-center" style="line-height: 40px;" ng-repeat="rows in chunkedData">
+                    <div class="col col-50 hycb-boder-ud" ng-repeat="item in rows">
+                        <span style="font-size: 16px;font-weight: 600;">{{item.name}}</span><br>
+                        <span style="color: #999999;">￥{{item.price}} /桌</span>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="allOrderPage.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">全部预定客户</ion-nav-title>
+        <ion-content>
+            <ion-refresher on-refresh="doRefresh_all_yuding()"
+                           pulling-text="下拉刷新..."
+                           refreshing-text="正在刷新..."
+                           refreshing-icon="ion-loading-c">
+            </ion-refresher>
+            <ion-list ng-repeat="room in yanghuiting_list">
+                <ion-item>
+                    <div class="row">
+                        <div class="col room-name-ud">{{room.name|limitLength}} {{room.floor}}F</div>
+                        <div class="col room-yuyue-tongji-ud">总计<span class="span-color-ud">{{room.yuding_total}}</span>人</div>
+                        <div class="col icon ion-chevron-up" ng-click="expand_order('{{$index}}')" id="up_arrow{{$index}}"></div>
+                        <div class="col icon ion-chevron-down" ng-click="collapse_order('{{$index}}')" style="display: none" id="down_arrow{{$index}}"></div>
+                    </div>
+                    <div class="list" style="display:none" id="orderDetail{{$index}}">
+                        <div class="row item-divider">
+                            <div class="col">序号</div>
+                            <div class="col">桌数</div>
+                            <div class="col">餐系</div>
+                            <div class="col">总计</div>
+                            <div class="col">日期</div>
+                        </div>
+                        <div ng-repeat="item in room.yuding_list ">
+                            <div class="row item-body" ui-sref="show_yuding_detail({id:item.id})">
+                                <div class="col">{{item.id}}</div>
+                                <div class="col">{{item.yuding_zhushu}}</div>
+                                <div class="col">￥{{item.yuding_price}}</div>
+                                <div class="col">￥{{item.total_price}}</div>
+                                <div class="col">{{item.dangqi}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-view>
+</script>
+<script id="show_yuding_detail.html" type="text/ng-template">
+    <ion-view hide-back-button="true">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+        </ion-nav-buttons>
+        <ion-nav-title class="nav-title-ud">预定客户</ion-nav-title>
+        <ion-content>
+            <div class="list">
+                <div class="sub-title-ud">客户信息</div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">客户姓名</div>
+                    <div class="col">{{item.yonghu}}</div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">联系方式</div>
+                    <div class="col">{{item.user_name}}</div>
+                </div>
+                <HR align=center width="95%" color=#D8D8D8 SIZE=2>
+                <div class="sub-title-ud">预定详情</div>
+                <div class="row yuyue-modal-detail-ud">预约信息</div>
+                <div class="list" ng-repeat="room in yanghuiting_list">
+                    <div class="row yuyue-modal-detail-ud">
+                        <div class="col">{{room.name}} {{room.floor}}F</div>
+                        <div class="col">￥{{room.yuding_price}}/桌 × {{room.yuding_zhushu}}桌</div>
+                    </div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">预约档期</div>
+                    <div class="col">{{item.dangqi}}</div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">看场时间</div>
+                    <div class="col">{{item.action_time}}</div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">支付定金</div>
+                    <div class="col">{{item.dingjin}}元</div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">剩余款项</div>
+                    <div class="col">{{item.sheyu_price}}元</div>
+                </div>
+                <HR align=center width="95%" color=#D8D8D8 SIZE=2>
+                <div class="sub-title-ud">订单信息</div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">订单编号</div>
+                    <div class="col">{{item.orderno}}</div>
+                </div>
+                <div class="row yuyue-modal-detail-ud">
+                    <div class="col">预定时间</div>
+                    <div class="col">{{item.yuding_time}}</div>
+                </div>
+            </div>
+            <button class="button" style="background: #ff4f80;width: 50%" ng-click="compelete_hunyan()"><span style="color: white">完成婚宴</span></button><button class="button" style="width: 50%" ng-click="cancel_yuding()"><span style="color:#ff4f80">取消预定</span></button>
+        </ion-content>
+    </ion-view>
+</script>

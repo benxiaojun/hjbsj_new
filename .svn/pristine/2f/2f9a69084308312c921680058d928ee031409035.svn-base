@@ -1,0 +1,72 @@
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">预定客户</ion-nav-title>
+    <ion-content overflow-scroll="false">
+        <div class="list">
+            <div class="sub-title-ud">客户信息</div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">客户姓名</div>
+                <div class="col">{{item.yonghu}}</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">联系方式</div>
+                <div class="col">{{item.user_name}}</div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="sub-title-ud">预定详情</div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">预约档期</div>
+                <div class="col">{{item.dangqi}}</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">预约信息</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud" ng-repeat="room in yanghuiting_list">
+                <div class="col text-center">{{room.name|limitLength}} {{room.floor}}F</div>
+                <div class="col text-left">￥{{room.yuding_price}}/桌 × {{room.yuding_zhushu}}桌</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">看场时间</div>
+                <div class="col">{{item.action_time}}</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">支付定金</div>
+                <div class="col">{{item.dingjin}}元</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">{{kx_title}}</div>
+                <div class="col">{{item.sheyu_price}}元</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">备注</div>
+                <div class="col">{{item.beizhu}}</div>
+            </div>
+            <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+            <div class="sub-title-ud">预约信息</div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">订单编号</div>
+                <div class="col">{{item.orderno}}</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">{{yt_title}}</div>
+                <div class="col">{{item.create_time}}</div>
+            </div>
+            <!--<div ng-show="is_cancel" style="margin-top: -10px;">-->
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">取消时间</div>
+                <div class="col">{{item.cancel_time}}</div>
+            </div>
+            <div class="row yuyue-modal-detail-ud">
+                <div class="col">取消原因</div>
+                <div class="col">{{item.reason}}</div>
+            </div>
+            <!--</div>-->
+        </div>
+        <!--<div class="row" style="margin-top: -20px;" ng-hide="isComplete">-->
+        <!--<div class="col text-center"><button class="button button-clear" style="background: #ff7666;width:120px;border-radius: 3px;" ng-click="compelete_hunyan()"><span style="color: white;font-family: 黑体;">完成婚宴</span></button></div>-->
+        <!--<div class="col text-center"><button class="button button-clear" style="background:white;width:120px;border-radius: 3px;border-color: #ECE4E3;" ng-click="cancel_yuding()"><span style="color:#ff7666;font-family: 黑体;border-color: #ECE4E3;">取消预定</span></button></div>-->
+        <!--</div>-->
+    </ion-content>
+</ion-view>

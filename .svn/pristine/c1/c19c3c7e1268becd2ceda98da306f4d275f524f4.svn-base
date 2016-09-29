@@ -1,0 +1,94 @@
+<ion-view hide-back-button="true" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="backGo()"><img ng-src="img/back.png" style="height: 20px;margin: 6px;"/></button>
+    </ion-nav-buttons>
+    <ion-nav-title class="nav-title-ud">订单信息</ion-nav-title>
+    <ion-content class="font-heiti-ud" overflow-scroll="false">
+        <div class="row row-center">
+            <div class="col sub-title-order-ud">服务信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">订单编号：{{item.orderno}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务档期：{{item.dangqi}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">服务内容：{{item.name}} {{item.ctype}} {{serv_cont_dif}}</div>
+        </div>
+        <div class="row row-center row-color-ud" ng-show="onlineOrder">
+            <div class="col">集合时间：{{item.jiheshijian}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col">设定路线：<span ng-hide="has_route">未设定路线</span></div>
+        </div>
+        <div id="route_id">
+            <div class="row row-center row-color-ud" style="height: 38px;">
+                <i class="icon ion-android-radio-button-off" style="color: red;font-size: 12px;margin-left: 15%;"></i>
+                <div style="background:#ff7666;height:2px;width:40%;opacity:0.3;"></div>
+                <i class="icon ion-android-radio-button-off" style="color: red;font-size: 12px;" ng-hide="false"></i>
+                <div style="background:#ff7666;height:2px;width:40%;opacity:0.3;"></div>
+                <i class="icon ion-android-radio-button-off" style="color: red;font-size: 12px;margin-right: 15%;"></i>
+            </div>
+            <div class="row row-center row-color-ud" style="font-size: 12px;line-height: 1px;margin-bottom: 10px;">
+                <div class="col text-center"><span><nobr>{{item.hunche_qidian==null||item.hunche_qidian==""?"无":item.hunche_qidian}}</nobr></span></div>
+                <div class="col text-center"><span ng-hide="false"><nobr>{{item.hunche_tujing==null||item.hunche_tujing==""?"无":item.hunche_tujing}}</nobr></span></div>
+                <div class="col text-center"><span><nobr>{{item.hunche_zhongdian==null||item.hunche_zhongdian==""?"无":item.hunche_zhongdian}}</nobr></span></div>
+            </div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row row-center">
+            <div class="col col-25 sub-title-order-ud">总金额</div>
+            <div class="col">
+                <span style="float:right;font-size: 20px;font-weight: 600;">￥{{item.yuding_price}}</span><br/>
+            </div>
+        </div>
+        <div class="row row-center" id="pay_info_row">
+            <div class="col"><span class="row-color-ud" style="float:right;"><nobr>已付：{{item.pay_amount}} &nbsp;&nbsp;待付：{{item.weifu}}</nobr></span></div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row ">
+            <div class="col sub-title-order-ud">预定信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">{{orderUser}}</div>
+            <div class="col col-25">{{item.yonghu}}</div>
+            <div class="col col-25 text-center">预定序号</div>
+            <div class="col col-25 text-center">{{item.yuding_xuhao}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">联系电话</div>
+            <div class="col">{{item.phone}}</div>
+        </div>
+        <HR align=center width="95%" color=#D8D8D8 SIZE=1>
+        <div class="row">
+            <div class="col sub-title-order-ud">新人信息</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新郎姓名</div>
+            <div class="col">{{item.man}}</div>
+            <div class="col" style="color: red;margin-left: -8em;" id="contact_man_flag" ng-show="contactMan">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新娘姓名</div>
+            <div class="col">{{item.woman}}</div>
+            <div class="col" style="color: red;margin-left: -8em;" id="contact_woman_flag" ng-hide="contactMan">√联系人</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">婚礼场所</div>
+            <div class="col">{{item.hotel}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">新人电话</div>
+            <div class="col">{{item.xinrenphone}}</div>
+        </div>
+        <div class="row row-center row-color-ud">
+            <div class="col col-25">签订合同</div>
+            <div class="col">{{item.hetongriqi}} {{item.hetongshijian}}</div>
+        </div>
+        <div class="row row-color-ud">
+            <div class="col col-25">备注</div>
+            <div class="col">{{item.beizhu}}</div>
+        </div>
+    </ion-content>
+</ion-view>
